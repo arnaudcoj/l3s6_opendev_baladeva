@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Authors init : Antoine Petit, Sarah Wissocq, Adrien Agez, Alexandre Moevi, Arnaud Cojez -->
 <diagram program="umlet" version="13.0">
   <zoom_level>7</zoom_level>
   <element>
@@ -992,12 +993,12 @@ layer=1</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>1925</x>
-      <y>217</y>
+      <y>224</y>
       <w>385</w>
-      <h>637</h>
+      <h>630</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;.</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;740.0;530.0;740.0;530.0;890.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;730.0;530.0;730.0;530.0;880.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
@@ -1055,6 +1056,18 @@ bg=green</panel_attributes>
     </coordinates>
     <panel_attributes>Gameframework
 fontsize=100</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Text</id>
+    <coordinates>
+      <x>2772</x>
+      <y>994</y>
+      <w>427</w>
+      <h>21</h>
+    </coordinates>
+    <panel_attributes>Authors : Antoine Petit, Sarah Wissocq, Adrien Agez, Alexandre Moevi, Arnaud Cojez
+style=autoresize</panel_attributes>
     <additional_attributes/>
   </element>
 </diagram>
