@@ -1,9 +1,4 @@
-As far as I know, this game framework has mostly been written by David
-Auber and contains a lot of contributions from Philippe Narbel and
-Damien Cassou.
+Projet de jeu pour l'UE OpenDev
 
-Pour lancer les tests, tapez :
+Using the framework written by David Auber, Philippe Narbel and Damien Cassou.
 
-```bash
-$ mvn test
-```
