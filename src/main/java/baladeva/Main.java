@@ -3,6 +3,8 @@ package baladeva;
 import gameframework.base.ObservableValue;
 import gameframework.drawing.GameCanvas;
 import gameframework.drawing.GameCanvasDefaultImpl;
+import gameframework.drawing.GameUniverseViewPort;
+import gameframework.drawing.GameUniverseViewPortDefaultImpl;
 import gameframework.game.GameConfiguration;
 import gameframework.gui.GameWindow;
 
@@ -15,6 +17,7 @@ public class Main {
 	 * @throws MalformedURLException 
 	 */
 	public static void main(String[] args) throws MalformedURLException {
+		GameUniverseViewPort guvp = new GameUniverseViewPortDefaultImpl();
 		GameCanvas gcanvas = new GameCanvasDefaultImpl();
 		GameConfiguration gconf = new GameConfiguration();
 		ObservableValue<Integer> score = new ObservableValue<Integer>(1200);
