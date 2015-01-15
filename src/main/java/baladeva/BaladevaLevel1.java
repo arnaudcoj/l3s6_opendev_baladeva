@@ -1,10 +1,8 @@
 package baladeva;
 
-import gameframework.drawing.GameUniverseViewPortDefaultImpl;
 import gameframework.game.GameData;
 import gameframework.game.GameLevel;
 import gameframework.game.GameLevelDefaultImpl;
-import gameframework.game.GameUniverseDefaultImpl;
 
 public class BaladevaLevel1 extends GameLevelDefaultImpl implements GameLevel {
 
