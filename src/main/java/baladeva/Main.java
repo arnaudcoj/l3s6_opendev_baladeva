@@ -1,11 +1,8 @@
 package baladeva;
 
-import gameframework.base.ObservableValue;
-import gameframework.drawing.GameCanvas;
-import gameframework.drawing.GameCanvasDefaultImpl;
-import gameframework.drawing.GameUniverseViewPort;
-import gameframework.drawing.GameUniverseViewPortDefaultImpl;
+import gameframework.game.Game;
 import gameframework.game.GameConfiguration;
+import gameframework.game.GameData;
 import gameframework.gui.GameWindow;
 
 import java.net.MalformedURLException;
@@ -17,14 +14,11 @@ public class Main {
 	 * @throws MalformedURLException 
 	 */
 	public static void main(String[] args) throws MalformedURLException {
-		GameUniverseViewPort guvp = new GameUniverseViewPortDefaultImpl();
-		GameCanvas gcanvas = new GameCanvasDefaultImpl();
-		GameConfiguration gconf = new GameConfiguration();
-		ObservableValue<Integer> score = new ObservableValue<Integer>(1200);
-		ObservableValue<Integer> life = new ObservableValue<Integer>(12);
-		GameWindow window = new GameWindow(gcanvas, gconf, score, life);
-		window.createGUI();
-		
+		GameConfiguration configuration = new GameConfiguration(30,50,5,5);
+		GameData data = new GameData(configuration);
+		Game baladeva = new Baladeva(data);
+		GameWindow w = new GameWindow(data.getCanvas(), configuration, data.getScore(), data.getLife());
+		w.createGUI();
+		baladeva.start();
 	}
-	
 }
