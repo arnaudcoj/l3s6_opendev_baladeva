@@ -1,14 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<!-- Authors init : Antoine Petit, Sarah Wissocq, Adrien Agez, Alexandre Moevi, Arnaud Cojez -->
-<diagram program="umlet" version="13.0">
-  <zoom_level>7</zoom_level>
+<diagram program="umlet" version="13.1">
+  <zoom_level>8</zoom_level>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1883</x>
-      <y>196</y>
-      <w>126</w>
-      <h>35</h>
+      <x>1088</x>
+      <y>224</y>
+      <w>144</w>
+      <h>40</h>
     </coordinates>
     <panel_attributes>&lt;&lt;Interface&gt;&gt;
 ObjectWithBoundedBox
@@ -18,10 +17,10 @@ style=autoresize</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>2275</x>
-      <y>840</y>
-      <w>70</w>
-      <h>35</h>
+      <x>872</x>
+      <y>848</y>
+      <w>80</w>
+      <h>40</h>
     </coordinates>
     <panel_attributes>&lt;&lt;Interface&gt;&gt;
 Movable
@@ -32,10 +31,10 @@ layer=2</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1309</x>
-      <y>805</y>
-      <w>84</w>
-      <h>35</h>
+      <x>776</x>
+      <y>640</y>
+      <w>96</w>
+      <h>40</h>
     </coordinates>
     <panel_attributes>&lt;&lt;Interface&gt;&gt;
 Overlappable
@@ -46,10 +45,10 @@ layer=2</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1995</x>
-      <y>812</y>
-      <w>70</w>
-      <h>35</h>
+      <x>1120</x>
+      <y>648</y>
+      <w>80</w>
+      <h>40</h>
     </coordinates>
     <panel_attributes>&lt;&lt;Interface&gt;&gt;
 MoveBlocker
@@ -60,10 +59,10 @@ layer=2</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>2268</x>
-      <y>931</y>
-      <w>84</w>
-      <h>21</h>
+      <x>872</x>
+      <y>952</y>
+      <w>96</w>
+      <h>24</h>
     </coordinates>
     <panel_attributes>GameMovable
 style=autoresize
@@ -73,10 +72,10 @@ layer=2</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>2296</x>
-      <y>868</y>
-      <w>21</w>
-      <h>77</h>
+      <x>904</x>
+      <y>880</y>
+      <w>24</w>
+      <h>88</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;.</panel_attributes>
     <additional_attributes>10.0;10.0;10.0;90.0</additional_attributes>
@@ -84,10 +83,10 @@ layer=2</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1141</x>
-      <y>448</y>
-      <w>70</w>
-      <h>35</h>
+      <x>824</x>
+      <y>400</y>
+      <w>80</w>
+      <h>40</h>
     </coordinates>
     <panel_attributes>&lt;&lt;Interface&gt;&gt;
 Drawable
@@ -97,10 +96,10 @@ style=autoresize</panel_attributes>
   <element>
     <id>UMLPackage</id>
     <coordinates>
-      <x>1687</x>
-      <y>147</y>
-      <w>364</w>
-      <h>126</h>
+      <x>928</x>
+      <y>192</y>
+      <w>320</w>
+      <h>80</h>
     </coordinates>
     <panel_attributes>base
 --
@@ -110,10 +109,10 @@ bg=blue</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1225</x>
-      <y>595</y>
-      <w>98</w>
-      <h>21</h>
+      <x>920</x>
+      <y>528</y>
+      <w>112</w>
+      <h>24</h>
     </coordinates>
     <panel_attributes>BackgroundImage
 style=autoresize</panel_attributes>
@@ -122,10 +121,10 @@ style=autoresize</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1092</x>
-      <y>546</y>
-      <w>105</w>
-      <h>21</h>
+      <x>808</x>
+      <y>480</y>
+      <w>120</w>
+      <h>24</h>
     </coordinates>
     <panel_attributes>DrawableComposite
 style=autoresize</panel_attributes>
@@ -134,10 +133,10 @@ style=autoresize</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1225</x>
-      <y>546</y>
-      <w>84</w>
-      <h>21</h>
+      <x>944</x>
+      <y>480</y>
+      <w>96</w>
+      <h>24</h>
     </coordinates>
     <panel_attributes>DrawableImage
 style=autoresize</panel_attributes>
@@ -146,32 +145,32 @@ style=autoresize</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1169</x>
-      <y>476</y>
-      <w>21</w>
-      <h>84</h>
+      <x>856</x>
+      <y>432</y>
+      <w>24</w>
+      <h>64</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;.</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;100.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;60.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1169</x>
-      <y>518</y>
-      <w>112</w>
-      <h>42</h>
+      <x>856</x>
+      <y>456</y>
+      <w>160</w>
+      <h>40</h>
     </coordinates>
     <panel_attributes>lt=.</panel_attributes>
-    <additional_attributes>10.0;10.0;140.0;10.0;140.0;40.0</additional_attributes>
+    <additional_attributes>10.0;10.0;180.0;10.0;180.0;30.0</additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1358</x>
-      <y>455</y>
-      <w>84</w>
-      <h>35</h>
+      <x>1056</x>
+      <y>400</y>
+      <w>96</w>
+      <h>40</h>
     </coordinates>
     <panel_attributes>&lt;&lt;Interface&gt;&gt;
 GameCanvas
@@ -181,33 +180,34 @@ style=autoresize</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1344</x>
-      <y>546</y>
-      <w>140</w>
-      <h>21</h>
+      <x>1056</x>
+      <y>480</y>
+      <w>96</w>
+      <h>40</h>
     </coordinates>
-    <panel_attributes>GameCanvasDefaultImpl
+    <panel_attributes>GameCanvas
+DefaultImpl
 style=autoresize</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1386</x>
-      <y>483</y>
-      <w>21</w>
-      <h>77</h>
+      <x>1088</x>
+      <y>432</y>
+      <w>24</w>
+      <h>64</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;.</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;90.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;60.0</additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1512</x>
-      <y>455</y>
-      <w>133</w>
-      <h>35</h>
+      <x>1176</x>
+      <y>400</y>
+      <w>152</w>
+      <h>40</h>
     </coordinates>
     <panel_attributes>&lt;&lt;Interface&gt;&gt;
 GameUniverseViewPort
@@ -217,33 +217,34 @@ style=autoresize</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1498</x>
-      <y>546</y>
-      <w>182</w>
-      <h>21</h>
+      <x>1192</x>
+      <y>480</y>
+      <w>120</w>
+      <h>40</h>
     </coordinates>
-    <panel_attributes>GameUniverseViewPortDefaultImpl
+    <panel_attributes>GameUniverseView
+PortDefaultImpl
 style=autoresize</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1589</x>
-      <y>483</y>
-      <w>21</w>
-      <h>77</h>
+      <x>1264</x>
+      <y>432</y>
+      <w>24</w>
+      <h>64</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;.</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;90.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;60.0</additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1757</x>
-      <y>455</y>
-      <w>84</w>
-      <h>35</h>
+      <x>1352</x>
+      <y>400</y>
+      <w>96</w>
+      <h>40</h>
     </coordinates>
     <panel_attributes>&lt;&lt;Interface&gt;&gt;
 SpriteManager
@@ -253,44 +254,45 @@ style=autoresize</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1708</x>
-      <y>546</y>
-      <w>147</w>
-      <h>21</h>
+      <x>1344</x>
+      <y>480</y>
+      <w>104</w>
+      <h>40</h>
     </coordinates>
-    <panel_attributes>SpriteManagerDefaultImpl
+    <panel_attributes>SpriteManager
+DefaultImpl
 style=autoresize</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1785</x>
-      <y>483</y>
-      <w>21</w>
-      <h>77</h>
+      <x>1384</x>
+      <y>432</y>
+      <w>24</w>
+      <h>64</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;.</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;90.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;60.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1260</x>
-      <y>560</y>
-      <w>21</w>
-      <h>49</h>
+      <x>984</x>
+      <y>496</y>
+      <w>24</w>
+      <h>48</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;50.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;40.0</additional_attributes>
   </element>
   <element>
     <id>UMLPackage</id>
     <coordinates>
-      <x>1078</x>
-      <y>406</y>
-      <w>805</w>
-      <h>245</h>
+      <x>800</x>
+      <y>344</y>
+      <w>672</w>
+      <h>216</h>
     </coordinates>
     <panel_attributes>drawing
 --
@@ -300,10 +302,10 @@ bg=pink</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1722</x>
-      <y>210</y>
-      <w>112</w>
-      <h>21</h>
+      <x>944</x>
+      <y>224</y>
+      <w>128</w>
+      <h>24</h>
     </coordinates>
     <panel_attributes>ObservableValue&lt;T&gt;
 style=autoresize
@@ -313,10 +315,10 @@ layer=1</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>350</x>
-      <y>553</y>
-      <w>70</w>
-      <h>35</h>
+      <x>328</x>
+      <y>384</y>
+      <w>80</w>
+      <h>40</h>
     </coordinates>
     <panel_attributes>&lt;&lt;interface&gt;&gt;
 Game
@@ -326,10 +328,10 @@ style=autoresize</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>784</x>
-      <y>553</y>
-      <w>70</w>
-      <h>35</h>
+      <x>688</x>
+      <y>384</y>
+      <w>80</w>
+      <h>40</h>
     </coordinates>
     <panel_attributes>&lt;&lt;interface&gt;&gt;
 GameEntity
@@ -339,10 +341,10 @@ style=autoresize</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>518</x>
-      <y>553</y>
-      <w>70</w>
-      <h>35</h>
+      <x>464</x>
+      <y>384</y>
+      <w>80</w>
+      <h>40</h>
     </coordinates>
     <panel_attributes>&lt;&lt;interface&gt;&gt;
 GameLevel
@@ -352,10 +354,10 @@ style=autoresize</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>672</x>
-      <y>553</y>
-      <w>84</w>
-      <h>35</h>
+      <x>576</x>
+      <y>384</y>
+      <w>96</w>
+      <h>40</h>
     </coordinates>
     <panel_attributes>&lt;&lt;interface&gt;&gt;
 GameUniverse
@@ -365,10 +367,10 @@ style=autoresize</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>21</x>
-      <y>560</y>
-      <w>112</w>
-      <h>21</h>
+      <x>16</x>
+      <y>384</y>
+      <w>128</w>
+      <h>24</h>
     </coordinates>
     <panel_attributes>GameConfiguration
 style=autoresize</panel_attributes>
@@ -377,10 +379,10 @@ style=autoresize</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>182</x>
-      <y>560</y>
-      <w>70</w>
-      <h>21</h>
+      <x>176</x>
+      <y>384</y>
+      <w>80</w>
+      <h>24</h>
     </coordinates>
     <panel_attributes>GameData
 style=autoresize</panel_attributes>
@@ -389,21 +391,21 @@ style=autoresize</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>126</x>
-      <y>560</y>
-      <w>70</w>
-      <h>21</h>
+      <x>136</x>
+      <y>384</y>
+      <w>56</w>
+      <h>24</h>
     </coordinates>
     <panel_attributes>lt=-&gt;&gt;&gt;&gt;</panel_attributes>
-    <additional_attributes>80.0;10.0;10.0;10.0</additional_attributes>
+    <additional_attributes>10.0;10.0;50.0;10.0</additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>329</x>
-      <y>644</y>
-      <w>105</w>
-      <h>21</h>
+      <x>304</x>
+      <y>464</y>
+      <w>120</w>
+      <h>24</h>
     </coordinates>
     <panel_attributes>GameDefaultImpl
 style=autoresize</panel_attributes>
@@ -412,32 +414,32 @@ style=autoresize</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>378</x>
-      <y>581</y>
-      <w>21</w>
-      <h>77</h>
+      <x>360</x>
+      <y>416</y>
+      <w>24</w>
+      <h>64</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;.</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;90.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;60.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>245</x>
-      <y>560</y>
-      <w>98</w>
-      <h>105</h>
+      <x>264</x>
+      <y>384</y>
+      <w>56</w>
+      <h>104</h>
     </coordinates>
-    <panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes>
-    <additional_attributes>10.0;10.0;60.0;10.0;60.0;130.0;120.0;130.0</additional_attributes>
+    <panel_attributes>lt=-&gt;&gt;&gt;&gt;</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;110.0;50.0;110.0</additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>476</x>
-      <y>700</y>
-      <w>126</w>
-      <h>21</h>
+      <x>416</x>
+      <y>512</y>
+      <w>144</w>
+      <h>24</h>
     </coordinates>
     <panel_attributes>GameLevelDefaultImpl
 style=autoresize</panel_attributes>
@@ -446,56 +448,56 @@ style=autoresize</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>546</x>
-      <y>581</y>
-      <w>21</w>
-      <h>133</h>
+      <x>496</x>
+      <y>416</y>
+      <w>24</w>
+      <h>112</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;.</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;170.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;120.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>280</x>
-      <y>644</y>
-      <w>210</w>
-      <h>77</h>
+      <x>264</x>
+      <y>464</y>
+      <w>168</w>
+      <h>72</h>
     </coordinates>
-    <panel_attributes/>
-    <additional_attributes>10.0;10.0;10.0;90.0;280.0;90.0</additional_attributes>
+    <panel_attributes>lt=-&gt;&gt;&gt;&gt;</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;70.0;190.0;70.0</additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>637</x>
-      <y>644</y>
-      <w>140</w>
-      <h>35</h>
+      <x>568</x>
+      <y>464</y>
+      <w>104</w>
+      <h>40</h>
     </coordinates>
-    <panel_attributes>&lt;&lt;interface&gt;&gt;
-GameUniverseDefaultImpl
+    <panel_attributes>GameUniverse
+DefaultImpl
 style=autoresize</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>700</x>
-      <y>581</y>
-      <w>21</w>
-      <h>77</h>
+      <x>608</x>
+      <y>416</y>
+      <w>24</w>
+      <h>64</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;.</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;90.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;60.0</additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>784</x>
-      <y>203</y>
-      <w>84</w>
-      <h>21</h>
+      <x>672</x>
+      <y>224</y>
+      <w>96</w>
+      <h>24</h>
     </coordinates>
     <panel_attributes>GameStatusBar
 style=autoresize</panel_attributes>
@@ -504,21 +506,21 @@ style=autoresize</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>861</x>
-      <y>203</y>
-      <w>875</w>
-      <h>28</h>
+      <x>760</x>
+      <y>224</y>
+      <w>200</w>
+      <h>24</h>
     </coordinates>
-    <panel_attributes>lt=-&gt;&gt;&gt;&gt;</panel_attributes>
-    <additional_attributes>10.0;10.0;1230.0;20.0</additional_attributes>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;230.0;10.0</additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>553</x>
-      <y>203</y>
-      <w>84</w>
-      <h>21</h>
+      <x>440</x>
+      <y>224</y>
+      <w>96</w>
+      <h>24</h>
     </coordinates>
     <panel_attributes>GameMenuBar
 style=autoresize</panel_attributes>
@@ -527,10 +529,10 @@ style=autoresize</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>672</x>
-      <y>245</y>
-      <w>84</w>
-      <h>21</h>
+      <x>560</x>
+      <y>264</y>
+      <w>96</w>
+      <h>24</h>
     </coordinates>
     <panel_attributes>GameWindow
 style=autoresize</panel_attributes>
@@ -539,43 +541,43 @@ style=autoresize</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>749</x>
-      <y>217</y>
-      <w>987</w>
-      <h>49</h>
-    </coordinates>
-    <panel_attributes>lt=-&gt;&gt;&gt;&gt;</panel_attributes>
-    <additional_attributes>10.0;50.0;1390.0;10.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>777</x>
-      <y>245</y>
-      <w>595</w>
-      <h>238</h>
+      <x>648</x>
+      <y>232</y>
+      <w>312</w>
+      <h>56</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes>
-    <additional_attributes>830.0;320.0;700.0;320.0;700.0;200.0;10.0;200.0;10.0;10.0</additional_attributes>
+    <additional_attributes>10.0;50.0;270.0;50.0;270.0;10.0;370.0;10.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>280</x>
-      <y>245</y>
-      <w>406</w>
-      <h>336</h>
+      <x>648</x>
+      <y>272</y>
+      <w>424</w>
+      <h>160</h>
     </coordinates>
-    <panel_attributes>lt=-</panel_attributes>
-    <additional_attributes>10.0;460.0;10.0;10.0;560.0;10.0</additional_attributes>
+    <panel_attributes>lt=-&gt;&gt;&gt;&gt;</panel_attributes>
+    <additional_attributes>510.0;180.0;380.0;180.0;380.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>248</x>
+      <y>264</y>
+      <w>328</w>
+      <h>144</h>
+    </coordinates>
+    <panel_attributes>lt=-&gt;&gt;&gt;&gt;</panel_attributes>
+    <additional_attributes>10.0;160.0;30.0;160.0;30.0;10.0;390.0;10.0</additional_attributes>
   </element>
   <element>
     <id>UMLPackage</id>
     <coordinates>
-      <x>518</x>
-      <y>154</y>
-      <w>385</w>
-      <h>133</h>
+      <x>432</x>
+      <y>192</y>
+      <w>360</w>
+      <h>112</h>
     </coordinates>
     <panel_attributes>gui
 --
@@ -585,10 +587,10 @@ bg=#0055ff</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>2583</x>
-      <y>812</y>
-      <w>84</w>
-      <h>35</h>
+      <x>456</x>
+      <y>848</y>
+      <w>96</w>
+      <h>40</h>
     </coordinates>
     <panel_attributes>&lt;&lt;Interface&gt;&gt;
 MoveStrategy
@@ -598,10 +600,10 @@ style=autoresize</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>2947</x>
-      <y>812</y>
-      <w>119</w>
-      <h>35</h>
+      <x>656</x>
+      <y>848</y>
+      <w>136</w>
+      <h>40</h>
     </coordinates>
     <panel_attributes>&lt;&lt;Interface&gt;&gt;
 GameMovableDriver
@@ -612,12 +614,13 @@ layer=2</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>2940</x>
-      <y>931</y>
-      <w>175</w>
-      <h>21</h>
+      <x>648</x>
+      <y>952</y>
+      <w>136</w>
+      <h>40</h>
     </coordinates>
-    <panel_attributes>GameMovableDriverDefaultImpl
+    <panel_attributes>GameMovableDriver
+DefaultImpl
 style=autoresize
 layer=2</panel_attributes>
     <additional_attributes/>
@@ -625,21 +628,21 @@ layer=2</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>2989</x>
-      <y>840</y>
-      <w>21</w>
-      <h>105</h>
+      <x>720</x>
+      <y>880</y>
+      <w>24</w>
+      <h>88</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;.</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;130.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;90.0</additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>3101</x>
-      <y>812</y>
-      <w>77</w>
-      <h>21</h>
+      <x>1000</x>
+      <y>848</y>
+      <w>88</w>
+      <h>24</h>
     </coordinates>
     <panel_attributes>IntersectTools
 style=autoresize
@@ -649,102 +652,58 @@ layer=2</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>2786</x>
-      <y>931</y>
-      <w>133</w>
-      <h>21</h>
+      <x>520</x>
+      <y>952</y>
+      <w>88</w>
+      <h>40</h>
     </coordinates>
-    <panel_attributes>MoveStrategyDefaultImpl
+    <panel_attributes>MoveStrategy
+Keyboard
 style=autoresize</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>2646</x>
-      <y>931</y>
-      <w>133</w>
-      <h>21</h>
+      <x>408</x>
+      <y>952</y>
+      <w>96</w>
+      <h>40</h>
     </coordinates>
-    <panel_attributes>MoveStrategyKeyboard
-style=autoresize</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>UMLClass</id>
-    <coordinates>
-      <x>2366</x>
-      <y>931</y>
-      <w>126</w>
-      <h>21</h>
-    </coordinates>
-    <panel_attributes>MoveStrategyRandom
-style=autoresize</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>UMLClass</id>
-    <coordinates>
-      <x>2499</x>
-      <y>931</y>
-      <w>147</w>
-      <h>21</h>
-    </coordinates>
-    <panel_attributes>MoveStrategyStraightLine
+    <panel_attributes>MoveStrategy
+Random
 style=autoresize</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>2611</x>
-      <y>840</y>
-      <w>259</w>
-      <h>105</h>
+      <x>488</x>
+      <y>880</y>
+      <w>96</w>
+      <h>88</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;.</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;70.0;350.0;70.0;350.0;130.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;60.0;100.0;60.0;100.0;90.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>2709</x>
-      <y>882</y>
-      <w>21</w>
-      <h>63</h>
+      <x>448</x>
+      <y>920</y>
+      <w>64</w>
+      <h>48</h>
     </coordinates>
     <panel_attributes>lt=.</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;70.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>2422</x>
-      <y>882</y>
-      <w>203</w>
-      <h>63</h>
-    </coordinates>
-    <panel_attributes>lt=.</panel_attributes>
-    <additional_attributes>270.0;10.0;10.0;10.0;10.0;70.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>2576</x>
-      <y>882</y>
-      <w>21</w>
-      <h>63</h>
-    </coordinates>
-    <panel_attributes>lt=.</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;70.0</additional_attributes>
+    <additional_attributes>60.0;10.0;10.0;10.0;10.0;40.0</additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>2765</x>
-      <y>812</y>
-      <w>70</w>
-      <h>21</h>
+      <x>1120</x>
+      <y>848</y>
+      <w>80</w>
+      <h>24</h>
     </coordinates>
     <panel_attributes>SpeedVector
 style=autoresize</panel_attributes>
@@ -753,10 +712,10 @@ style=autoresize</panel_attributes>
   <element>
     <id>UMLPackage</id>
     <coordinates>
-      <x>1064</x>
-      <y>763</y>
-      <w>2128</w>
-      <h>217</h>
+      <x>392</x>
+      <y>592</y>
+      <w>1016</w>
+      <h>416</h>
     </coordinates>
     <panel_attributes>motion
 --
@@ -766,10 +725,10 @@ bg=yellow</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>2093</x>
-      <y>812</y>
-      <w>112</w>
-      <h>35</h>
+      <x>1232</x>
+      <y>648</y>
+      <w>128</w>
+      <h>40</h>
     </coordinates>
     <panel_attributes>&lt;&lt;Interface&gt;&gt;
 MoveBlockerChecker
@@ -780,10 +739,10 @@ layer=1</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1785</x>
-      <y>812</y>
-      <w>140</w>
-      <h>35</h>
+      <x>928</x>
+      <y>648</y>
+      <w>160</w>
+      <h>40</h>
     </coordinates>
     <panel_attributes>&lt;&lt;Interface&gt;&gt;
 MoveBlockerRulesApplier
@@ -794,12 +753,13 @@ layer=1</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>2072</x>
-      <y>938</y>
-      <w>168</w>
-      <h>21</h>
+      <x>1224</x>
+      <y>776</y>
+      <w>136</w>
+      <h>40</h>
     </coordinates>
-    <panel_attributes>MoveBlockerCheckerDefaultImpl
+    <panel_attributes>MoveBlockerChecker
+DefaultImpl
 style=autoresize
 layer=1</panel_attributes>
     <additional_attributes/>
@@ -807,23 +767,24 @@ layer=1</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>2149</x>
-      <y>840</y>
-      <w>21</w>
+      <x>1296</x>
+      <y>680</y>
+      <w>24</w>
       <h>112</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;.</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;140.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;120.0</additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1813</x>
-      <y>938</y>
-      <w>196</w>
-      <h>21</h>
+      <x>1000</x>
+      <y>776</y>
+      <w>120</w>
+      <h>40</h>
     </coordinates>
-    <panel_attributes>MoveBlockerRulesApplierDefaultImpl
+    <panel_attributes>MoveBlockerRules
+ApplierDefaultImpl
 style=autoresize
 layer=1</panel_attributes>
     <additional_attributes/>
@@ -831,32 +792,21 @@ layer=1</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1869</x>
-      <y>840</y>
-      <w>21</w>
+      <x>1024</x>
+      <y>680</y>
+      <w>24</w>
       <h>112</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;.</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;140.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>2058</x>
-      <y>819</y>
-      <w>42</w>
-      <h>133</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes>
-    <additional_attributes>10.0;10.0;40.0;10.0;40.0;170.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;120.0</additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1519</x>
-      <y>812</y>
-      <w>126</w>
-      <h>35</h>
+      <x>600</x>
+      <y>640</y>
+      <w>144</w>
+      <h>40</h>
     </coordinates>
     <panel_attributes>&lt;&lt;Interface&gt;&gt;
 OverlappableProcessor
@@ -867,12 +817,13 @@ layer=1</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1484</x>
-      <y>924</y>
-      <w>189</w>
-      <h>21</h>
+      <x>600</x>
+      <y>768</y>
+      <w>152</w>
+      <h>40</h>
     </coordinates>
-    <panel_attributes>OverlappableProcessorDefaultImpl
+    <panel_attributes>OverlappableProcessor
+DefaultImpl
 style=autoresize
 layer=1</panel_attributes>
     <additional_attributes/>
@@ -880,10 +831,10 @@ layer=1</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1323</x>
-      <y>917</y>
-      <w>49</w>
-      <h>21</h>
+      <x>792</x>
+      <y>768</y>
+      <w>56</w>
+      <h>24</h>
     </coordinates>
     <panel_attributes>Overlap
 style=autoresize
@@ -893,12 +844,13 @@ layer=1</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1099</x>
-      <y>917</y>
-      <w>168</w>
-      <h>21</h>
+      <x>424</x>
+      <y>768</y>
+      <w>136</w>
+      <h>40</h>
     </coordinates>
-    <panel_attributes>OverlapRulesApplierDefaultImpl
+    <panel_attributes>OverlapRulesApplier
+DefaultImpl
 style=autoresize
 layer=1</panel_attributes>
     <additional_attributes/>
@@ -906,10 +858,10 @@ layer=1</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1127</x>
-      <y>805</y>
-      <w>112</w>
-      <h>35</h>
+      <x>440</x>
+      <y>640</y>
+      <w>128</w>
+      <h>40</h>
     </coordinates>
     <panel_attributes>&lt;&lt;Interface&gt;&gt;
 OverlapRulesApplier
@@ -920,10 +872,10 @@ layer=1</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1344</x>
-      <y>833</y>
-      <w>21</w>
-      <h>98</h>
+      <x>816</x>
+      <y>672</y>
+      <w>24</w>
+      <h>112</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;.</panel_attributes>
     <additional_attributes>10.0;10.0;10.0;120.0</additional_attributes>
@@ -931,10 +883,10 @@ layer=1</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1575</x>
-      <y>840</y>
-      <w>21</w>
-      <h>98</h>
+      <x>664</x>
+      <y>672</y>
+      <w>24</w>
+      <h>112</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;.</panel_attributes>
     <additional_attributes>10.0;10.0;10.0;120.0</additional_attributes>
@@ -942,32 +894,21 @@ layer=1</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1169</x>
-      <y>833</y>
-      <w>21</w>
-      <h>98</h>
+      <x>488</x>
+      <y>672</y>
+      <w>24</w>
+      <h>112</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;.</panel_attributes>
     <additional_attributes>10.0;10.0;10.0;120.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>1386</x>
-      <y>812</y>
-      <w>112</w>
-      <h>140</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes>
-    <additional_attributes>10.0;10.0;110.0;10.0;110.0;180.0;140.0;180.0</additional_attributes>
   </element>
   <element>
     <id>UMLPackage</id>
     <coordinates>
-      <x>1078</x>
-      <y>784</y>
-      <w>665</w>
-      <h>189</h>
+      <x>408</x>
+      <y>616</y>
+      <w>480</w>
+      <h>216</h>
     </coordinates>
     <panel_attributes>overlapping
 --
@@ -978,10 +919,10 @@ layer=1</panel_attributes>
   <element>
     <id>UMLPackage</id>
     <coordinates>
-      <x>1771</x>
-      <y>784</y>
-      <w>483</w>
-      <h>189</h>
+      <x>912</x>
+      <y>616</y>
+      <w>472</w>
+      <h>216</h>
     </coordinates>
     <panel_attributes>blocking
 --
@@ -992,54 +933,45 @@ layer=1</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1925</x>
-      <y>224</y>
-      <w>385</w>
-      <h>630</h>
+      <x>576</x>
+      <y>280</y>
+      <w>336</w>
+      <h>584</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;.</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;730.0;530.0;730.0;530.0;880.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;60.0;270.0;60.0;270.0;370.0;400.0;370.0;400.0;710.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>2023</x>
-      <y>728</y>
-      <w>21</w>
-      <h>98</h>
+      <x>888</x>
+      <y>568</y>
+      <w>288</w>
+      <h>96</h>
     </coordinates>
-    <panel_attributes>lt=.</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;120.0</additional_attributes>
+    <panel_attributes>lt=.
+layer=2</panel_attributes>
+    <additional_attributes>10.0;10.0;340.0;10.0;340.0;100.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1344</x>
-      <y>728</y>
-      <w>616</w>
-      <h>91</h>
+      <x>264</x>
+      <y>512</y>
+      <w>176</w>
+      <h>280</h>
     </coordinates>
-    <panel_attributes>lt=.</panel_attributes>
-    <additional_attributes>860.0;10.0;10.0;10.0;10.0;110.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>280</x>
-      <y>700</y>
-      <w>833</w>
-      <h>238</h>
-    </coordinates>
-    <panel_attributes>lt=-</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;320.0;1170.0;320.0</additional_attributes>
+    <panel_attributes>lt=-&gt;&gt;&gt;&gt;
+layer=2</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;330.0;200.0;330.0</additional_attributes>
   </element>
   <element>
     <id>UMLPackage</id>
     <coordinates>
       <x>0</x>
-      <y>504</y>
-      <w>896</w>
-      <h>238</h>
+      <y>344</y>
+      <w>784</w>
+      <h>216</h>
     </coordinates>
     <panel_attributes>game
 --
@@ -1049,25 +981,49 @@ bg=green</panel_attributes>
   <element>
     <id>Text</id>
     <coordinates>
-      <x>1008</x>
-      <y>0</y>
-      <w>630</w>
-      <h>91</h>
+      <x>472</x>
+      <y>72</y>
+      <w>720</w>
+      <h>104</h>
     </coordinates>
-    <panel_attributes>Gameframework
+    <panel_attributes>gameframework
 fontsize=100</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>Text</id>
     <coordinates>
-      <x>2772</x>
-      <y>994</y>
-      <w>427</w>
-      <h>21</h>
+      <x>952</x>
+      <y>1032</y>
+      <w>480</w>
+      <h>24</h>
     </coordinates>
     <panel_attributes>Authors : Antoine Petit, Sarah Wissocq, Adrien Agez, Alexandre Moevi, Arnaud Cojez
 style=autoresize</panel_attributes>
     <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>560</x>
+      <y>920</y>
+      <w>80</w>
+      <h>32</h>
+    </coordinates>
+    <panel_attributes>lt=.
+m2=...</panel_attributes>
+    <additional_attributes>10.0;10.0;80.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>640</x>
+      <y>568</y>
+      <w>168</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>lt=.
+layer=2</panel_attributes>
+    <additional_attributes>190.0;10.0;10.0;10.0;10.0;80.0</additional_attributes>
   </element>
 </diagram>
