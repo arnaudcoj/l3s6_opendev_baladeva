@@ -6,7 +6,8 @@ import gameframework.game.GameUniverseDefaultImpl;
 public class BaladevaUniverseLevel1 extends GameUniverseDefaultImpl {
 	
 	public BaladevaUniverseLevel1(GameData data) {
+		super();
 		this.setGameData(data);
-	}
+}
 	
 }

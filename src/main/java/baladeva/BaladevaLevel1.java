@@ -1,26 +1,62 @@
 package baladeva;
 
 import gameframework.game.GameData;
-import gameframework.game.GameLevel;
 import gameframework.game.GameLevelDefaultImpl;
 
-public class BaladevaLevel1 extends GameLevelDefaultImpl implements GameLevel {
+public class BaladevaLevel1 extends GameLevelDefaultImpl {
 
+	protected int rows;
+	protected int columns;
+	protected int spriteSize;
+	
 	public BaladevaLevel1(GameData data) {
 		super(data);
+		this.rows = this.data.getConfiguration().getNbRows();
+		this.columns = this.data.getConfiguration().getNbColumns();
+		this.spriteSize = this.data.getConfiguration().getSpriteSize();
 	}
 
 	@Override
 	protected void init() {
 		this.gameBoard = new BaladevaUniverseViewPortLevel1(this.data);
-		this.universe = new BaladevaUniverseLevel1(this.data);
-
+		this.universe.addGameEntity(new BaladevaPlayer(data, normalizeCell(3), normalizeCell(3)));
+		this.createLevelWalls();
 	}
 
 	@Override
 	public void run() {
-		// TODO Auto-generated method stub
 		super.run();
+	}
+
+	protected void createLevelWalls() {
+		createLeftSideWall();
+		createBottomSideWall();
+		createRightSideWall();
+		createTopSideWall();
+	}
+
+	public int normalizeCell(int n) {
+		return n * this.spriteSize;
+	}
+	
+	public void createLeftSideWall() {
+		for (int i = 0; i < rows; i++)
+			universe.addGameEntity(new BaladevaWall(data, 0, normalizeCell(i)));
+	}
+
+	public void createBottomSideWall() {
+		for (int i = 0; i < columns; i++)
+			universe.addGameEntity(new BaladevaWall(data, normalizeCell(i), normalizeCell(rows - 1)));
+	}
+
+	public void createRightSideWall() {
+		for (int i = rows; i > 0; i--)
+			universe.addGameEntity(new BaladevaWall(data, normalizeCell(columns - 1), normalizeCell(i)));
+	}
+
+	public void createTopSideWall() {
+		for (int i = columns; i > 0; i--)
+			universe.addGameEntity(new BaladevaWall(data, normalizeCell(i), 0));
 	}
 
 }
