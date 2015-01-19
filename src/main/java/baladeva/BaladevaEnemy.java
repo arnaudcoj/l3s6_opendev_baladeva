@@ -68,9 +68,10 @@ public class BaladevaEnemy extends GameMovable implements GameEntity, Drawable {
 			m = moveDriver.getSpeedVector(this);
 		if (!m.equals(speedVector))
 			this.changeDirection(m);
-		nbStep = (5 + rand.nextInt(5));
+		   nbStep = (5 + rand.nextInt(5));
 		}
 		if (!(m.getDirection().getX() == 0 && m.getDirection().getY() == 0)) {
+			if (moveDriver.getRekt().moveValidation(this, m)) {
 			speedVector.setDirection(m.getDirection());
 			speedVector.setSpeed(m.getSpeed());
 			position.translate((int) speedVector.getDirection().getX()
@@ -79,10 +80,10 @@ public class BaladevaEnemy extends GameMovable implements GameEntity, Drawable {
 			oneStepMoveAddedBehavior();
 			speed = m;
 			nbStep--;
+			}
+			else {m = moveDriver.getSpeedVector(this);nbStep = (5 + rand.nextInt(5));}
 		}
 		else this.spriteManager.reset();
-		
-			
 	}
 
 	public void changeDirection(SpeedVector m) {
