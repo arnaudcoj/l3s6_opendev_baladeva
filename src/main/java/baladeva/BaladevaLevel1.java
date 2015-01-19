@@ -10,7 +10,7 @@ public class BaladevaLevel1 extends GameLevelDefaultImpl {
 	protected int spriteSize;
 	
 	public BaladevaLevel1(GameData data) {
-		super(data);
+		super(data, 30);
 		this.rows = this.data.getConfiguration().getNbRows();
 		this.columns = this.data.getConfiguration().getNbColumns();
 		this.spriteSize = this.data.getConfiguration().getSpriteSize();

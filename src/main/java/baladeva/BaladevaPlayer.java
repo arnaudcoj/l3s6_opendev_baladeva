@@ -10,6 +10,7 @@ import gameframework.game.GameEntity;
 import gameframework.motion.GameMovable;
 import gameframework.motion.GameMovableDriverDefaultImpl;
 import gameframework.motion.MoveStrategyKeyboard;
+import gameframework.motion.SpeedVector;
 
 import java.awt.Graphics;
 import java.awt.Point;
@@ -27,12 +28,17 @@ public class BaladevaPlayer extends GameMovable implements GameEntity, Drawable 
 		this.spriteSize = data.getConfiguration().getSpriteSize();
 		this.spriteManager = new SpriteManagerDefaultImpl(new DrawableImage("/images/level1/Eva.png", canvas), this.spriteSize, 3);
 		this.initSpriteManager();
+		
 		this.setPosition(new Point(x, y));
-		MoveStrategyKeyboard keyboard = new MoveStrategyKeyboard();
+		
+		MoveStrategyKeyboard keyboard = new MoveStrategyKeyboard(false);
 		GameMovableDriverDefaultImpl moveDriver = new GameMovableDriverDefaultImpl();
+		
 		moveDriver.setStrategy(keyboard);
 		moveDriver.setmoveBlockerChecker(data.getMoveBlockerChecker());
+		
 		data.getCanvas().addKeyListener(keyboard);
+		
 		setDriver(moveDriver);
 	}
 
