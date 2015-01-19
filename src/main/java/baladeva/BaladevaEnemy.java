@@ -15,9 +15,12 @@ import gameframework.motion.SpeedVector;
 import java.awt.Graphics;
 import java.awt.Point;
 import java.awt.Rectangle;
+import java.util.Random;
 
 public class BaladevaEnemy extends GameMovable implements GameEntity, Drawable {
 
+	protected Random rand = new Random();
+	protected int nbStep = 0;
 	protected DrawableImage img;
 	protected GameCanvas canvas;
 	protected SpriteManager spriteManager;
@@ -54,15 +57,19 @@ public class BaladevaEnemy extends GameMovable implements GameEntity, Drawable {
 	public Rectangle getBoundingBox() {
 		Rectangle rectangle = new Rectangle(this.img.getWidth(),
 				this.img.getWidth());
-		rectangle.setLocation(position.x, position.y);
+		rectangle.setLocation(position.x*this.img.getWidth(), position.y*this.img.getWidth());
 		return rectangle;
 	}
-
+	
 	@Override
 	public void oneStepMove() {
-		SpeedVector m = moveDriver.getSpeedVector(this);
+		SpeedVector m = speed;
+		if (nbStep == 0) {
+			m = moveDriver.getSpeedVector(this);
 		if (!m.equals(speedVector))
 			this.changeDirection(m);
+		nbStep = (5 + rand.nextInt(5));
+		}
 		if (!(m.getDirection().getX() == 0 && m.getDirection().getY() == 0)) {
 			speedVector.setDirection(m.getDirection());
 			speedVector.setSpeed(m.getSpeed());
@@ -70,6 +77,8 @@ public class BaladevaEnemy extends GameMovable implements GameEntity, Drawable {
 					* speedVector.getSpeed(), (int) speedVector.getDirection()
 					.getY() * speedVector.getSpeed());
 			oneStepMoveAddedBehavior();
+			speed = m;
+			nbStep--;
 		}
 		else this.spriteManager.reset();
 		
@@ -89,6 +98,8 @@ public class BaladevaEnemy extends GameMovable implements GameEntity, Drawable {
 			this.spriteManager.setType("up");
 	}
 
+	
+	
 	@Override
 	public void oneStepMoveAddedBehavior() {
 		// TODO Auto-generated method stub
