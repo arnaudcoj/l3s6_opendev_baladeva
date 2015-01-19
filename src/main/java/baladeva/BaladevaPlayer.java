@@ -9,7 +9,6 @@ import gameframework.game.GameData;
 import gameframework.game.GameEntity;
 import gameframework.motion.GameMovable;
 import gameframework.motion.GameMovableDriverDefaultImpl;
-import gameframework.motion.MoveStrategyKeyboard8Dir;
 
 import java.awt.Graphics;
 import java.awt.Point;
