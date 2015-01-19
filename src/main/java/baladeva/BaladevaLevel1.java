@@ -20,6 +20,7 @@ public class BaladevaLevel1 extends GameLevelDefaultImpl {
 	protected void init() {
 		this.gameBoard = new BaladevaUniverseViewPortLevel1(this.data);
 		this.universe.addGameEntity(new BaladevaPlayer(data, normalizeCell(3), normalizeCell(3)));
+		this.universe.addGameEntity(new BaladevaEnemy(data, normalizeCell(3), normalizeCell(3)));
 		this.createLevelWalls();
 	}
 
