@@ -9,8 +9,7 @@ import gameframework.game.GameData;
 import gameframework.game.GameEntity;
 import gameframework.motion.GameMovable;
 import gameframework.motion.GameMovableDriverDefaultImpl;
-import gameframework.motion.MoveStrategyKeyboard;
-import gameframework.motion.SpeedVector;
+import gameframework.motion.MoveStrategyKeyboard8Dir;
 
 import java.awt.Graphics;
 import java.awt.Point;
@@ -31,7 +30,7 @@ public class BaladevaPlayer extends GameMovable implements GameEntity, Drawable 
 		
 		this.setPosition(new Point(x, y));
 		
-		MoveStrategyKeyboard keyboard = new MoveStrategyKeyboard(false);
+		MoveStrategyBaladeva keyboard = new MoveStrategyBaladeva();
 		GameMovableDriverDefaultImpl moveDriver = new GameMovableDriverDefaultImpl();
 		
 		moveDriver.setStrategy(keyboard);
@@ -63,8 +62,7 @@ public class BaladevaPlayer extends GameMovable implements GameEntity, Drawable 
 
 	@Override
 	public void oneStepMoveAddedBehavior() {
-		// TODO Auto-generated method stub
-
+		this.spriteManager.increment();
 	}
 
 }
