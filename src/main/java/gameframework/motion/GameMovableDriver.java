@@ -5,4 +5,6 @@ package gameframework.motion;
  */
 public interface GameMovableDriver {
 	public SpeedVector getSpeedVector(Movable m);
+	
+	public MoveBlockerChecker getChecker();
 }
