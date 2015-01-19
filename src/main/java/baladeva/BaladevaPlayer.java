@@ -3,6 +3,8 @@ package baladeva;
 import gameframework.drawing.Drawable;
 import gameframework.drawing.DrawableImage;
 import gameframework.drawing.GameCanvas;
+import gameframework.drawing.SpriteManager;
+import gameframework.drawing.SpriteManagerDefaultImpl;
 import gameframework.game.GameData;
 import gameframework.game.GameEntity;
 import gameframework.motion.GameMovable;
@@ -15,14 +17,16 @@ import java.awt.Rectangle;
 
 public class BaladevaPlayer extends GameMovable implements GameEntity, Drawable {
 
-	protected DrawableImage img;
+	protected SpriteManager spriteManager;
 	protected GameCanvas canvas;
+	protected int spriteSize;
 	
 	public BaladevaPlayer(GameData data, int x, int y) {
 		super();
 		this.canvas = data.getCanvas();
-		this.img = new DrawableImage("/images/level1/Eva.png",
-				this.canvas);
+		this.spriteSize = data.getConfiguration().getSpriteSize();
+		this.spriteManager = new SpriteManagerDefaultImpl(new DrawableImage("/images/level1/Eva.png", canvas), this.spriteSize, 3);
+		this.initSpriteManager();
 		this.setPosition(new Point(x, y));
 		MoveStrategyKeyboard keyboard = new MoveStrategyKeyboard();
 		GameMovableDriverDefaultImpl moveDriver = new GameMovableDriverDefaultImpl();
@@ -32,16 +36,22 @@ public class BaladevaPlayer extends GameMovable implements GameEntity, Drawable 
 		setDriver(moveDriver);
 	}
 
+	public void initSpriteManager() {
+		this.spriteManager.setTypes("down","left","right","up");
+		this.spriteManager.setType("down");
+		this.spriteManager.reset();
+	}
+	
 	@Override
 	public void draw(Graphics g) {
-		// ugly
-		this.canvas.drawImage(g, this.img.getImage(), this.position.x, this.position.y);
+		this.spriteManager.draw(g, position);
+		this.spriteManager.increment();
 	}
 
 	@Override
 	public Rectangle getBoundingBox() {
-		Rectangle rectangle = new Rectangle(this.img.getWidth(), this.img.getWidth());
-		rectangle.setLocation(position.x, position.y);
+		Rectangle rectangle = new Rectangle(this.spriteSize, this.spriteSize);
+		rectangle.setLocation(position.x*this.spriteSize, position.y*this.spriteSize);
 		return rectangle;
 	}
 

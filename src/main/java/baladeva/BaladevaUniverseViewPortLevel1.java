@@ -14,6 +14,6 @@ public class BaladevaUniverseViewPortLevel1 extends
 
 	@Override
 	protected URL backgroundImage() {
-		return backgroundImage("/images/level1/background.png");
+		return backgroundImage("/images/level1/backCell.png");
 	}
 }

@@ -14,7 +14,7 @@ public class Main {
 	 * @throws MalformedURLException 
 	 */
 	public static void main(String[] args) throws MalformedURLException {
-		GameConfiguration configuration = new GameConfiguration(20, 40, 16, 5);
+		GameConfiguration configuration = new GameConfiguration(20, 40, 32, 5);
 		GameData data = new GameData(configuration);
 		Game baladeva = new Baladeva(data);
 		GameWindow w = new GameWindow(data.getCanvas(), configuration, data.getScore(), data.getLife());
