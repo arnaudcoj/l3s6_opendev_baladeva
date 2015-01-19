@@ -21,9 +21,9 @@ public class BaladevaPlayer extends GameMovable implements GameEntity, Drawable 
 	public BaladevaPlayer(GameData data, int x, int y) {
 		super();
 		this.canvas = data.getCanvas();
-		this.img = new DrawableImage("/images/level1/player.png",
+		this.img = new DrawableImage("/images/level1/Eva.png",
 				this.canvas);
-		this.position = new Point(x, y);
+		this.setPosition(new Point(x, y));
 		MoveStrategyKeyboard keyboard = new MoveStrategyKeyboard();
 		GameMovableDriverDefaultImpl moveDriver = new GameMovableDriverDefaultImpl();
 		moveDriver.setStrategy(keyboard);
