@@ -71,7 +71,7 @@ public class BaladevaEnemy extends GameMovable implements GameEntity, Drawable {
 		   nbStep = (5 + rand.nextInt(5));
 		}
 		if (!(m.getDirection().getX() == 0 && m.getDirection().getY() == 0)) {
-			if (moveDriver.getRekt().moveValidation(this, m)) {
+			if (moveDriver.getChecker().moveValidation(this, m)) {
 			speedVector.setDirection(m.getDirection());
 			speedVector.setSpeed(m.getSpeed());
 			position.translate((int) speedVector.getDirection().getX()
