@@ -33,7 +33,7 @@ public class BaladevaPlayer extends GameMovable implements GameEntity, Drawable 
 
 		this.setPosition(new Point(x, y));
 
-		MoveStrategyKeyboard keyboard = new MoveStrategyKeyboard(false);
+		MoveStrategyKeyboard keyboard = new MoveStrategyKeyboard();
 		GameMovableDriverDefaultImpl moveDriver = new GameMovableDriverDefaultImpl();
 
 		moveDriver.setStrategy(keyboard);

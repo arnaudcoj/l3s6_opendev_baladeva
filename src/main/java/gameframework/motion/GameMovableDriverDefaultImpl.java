@@ -12,6 +12,8 @@ public class GameMovableDriverDefaultImpl implements GameMovableDriver {
 		moveStrategy = new MoveStrategyDefaultImpl();
 	}
 
+	public MoveBlockerChecker getChecker(){return moveBlockerChecker;}
+
 	public void setStrategy(MoveStrategy strat) {
 		moveStrategy = strat;
 	}
