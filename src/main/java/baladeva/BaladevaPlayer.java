@@ -9,6 +9,7 @@ import gameframework.game.GameData;
 import gameframework.game.GameEntity;
 import gameframework.motion.GameMovable;
 import gameframework.motion.GameMovableDriverDefaultImpl;
+import gameframework.motion.MoveStrategyKeyboard;
 
 import java.awt.Graphics;
 import java.awt.Point;
@@ -29,7 +30,7 @@ public class BaladevaPlayer extends GameMovable implements GameEntity, Drawable 
 		
 		this.setPosition(new Point(x, y));
 		
-		MoveStrategyBaladeva keyboard = new MoveStrategyBaladeva();
+		MoveStrategyKeyboard keyboard = new MoveStrategyKeyboard();
 		GameMovableDriverDefaultImpl moveDriver = new GameMovableDriverDefaultImpl();
 		
 		moveDriver.setStrategy(keyboard);
