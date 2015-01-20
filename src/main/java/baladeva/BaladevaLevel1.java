@@ -1,5 +1,7 @@
 package baladeva;
 
+import java.util.Random;
+
 import gameframework.game.GameData;
 import gameframework.game.GameLevelDefaultImpl;
 
@@ -18,12 +20,18 @@ public class BaladevaLevel1 extends GameLevelDefaultImpl {
 
 	@Override
 	protected void init() {
-		this.gameBoard = new BaladevaUniverseViewPortLevel1(this.data);
-		this.universe.addGameEntity(new BaladevaPlayer(data, normalizeCell(3), normalizeCell(3)));
-		this.universe.addGameEntity(new BaladevaEnemy(data, normalizeCell(3), normalizeCell(5)));
-		this.universe.addGameEntity(new BaladevaEnemy(data, normalizeCell(7), normalizeCell(11)));
-		this.universe.addGameEntity(new BaladevaEnemy(data, normalizeCell(11), normalizeCell(7)));
+		this.gameBoard = new BaladevaUniverseViewPortLevel1(this.data);		
+		this.universe.addGameEntity(new BaladevaPlayer(data, normalizeCell(1), normalizeCell(1)));
+		this.spwanEnnemies();
 		this.createLevelWalls();
+	}
+
+	private void spwanEnnemies() {
+		Random dice = new Random();
+		for(int i = 0 ; i < 10 ; i++) {
+			if(dice.nextInt(2) == 1)
+				this.universe.addGameEntity(new BaladevaEnemy(data, normalizeCell(dice.nextInt(columns - 5)), normalizeCell(dice.nextInt(rows - 5))));
+		}		
 	}
 
 	@Override
