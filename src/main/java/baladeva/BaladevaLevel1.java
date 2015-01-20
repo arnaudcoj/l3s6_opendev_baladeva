@@ -39,33 +39,33 @@ public class BaladevaLevel1 extends GameLevelDefaultImpl {
 		super.run();
 	}
 
-	protected void createLevelWalls() {
+	private void createLevelWalls() {
 		createLeftSideWall();
 		createBottomSideWall();
 		createRightSideWall();
 		createTopSideWall();
 	}
 
-	public int normalizeCell(int n) {
+	private int normalizeCell(int n) {
 		return n * this.spriteSize;
 	}
 	
-	public void createLeftSideWall() {
+	private void createLeftSideWall() {
 		for (int i = 0; i < rows; i++)
 			universe.addGameEntity(new BaladevaWall(data, 0, normalizeCell(i)));
 	}
 
-	public void createBottomSideWall() {
+	private void createBottomSideWall() {
 		for (int i = 0; i < columns; i++)
 			universe.addGameEntity(new BaladevaWall(data, normalizeCell(i), normalizeCell(rows - 1)));
 	}
 
-	public void createRightSideWall() {
+	private void createRightSideWall() {
 		for (int i = rows; i > 0; i--)
 			universe.addGameEntity(new BaladevaWall(data, normalizeCell(columns - 1), normalizeCell(i)));
 	}
 
-	public void createTopSideWall() {
+	private void createTopSideWall() {
 		for (int i = columns; i > 0; i--)
 			universe.addGameEntity(new BaladevaWall(data, normalizeCell(i), 0));
 	}
