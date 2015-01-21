@@ -1,4 +1,4 @@
-package baladeva;
+package baladeva.entities;
 
 import gameframework.drawing.Drawable;
 import gameframework.drawing.DrawableImage;

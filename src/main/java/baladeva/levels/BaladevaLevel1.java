@@ -1,7 +1,12 @@
-package baladeva;
+package baladeva.levels;
 
 import java.util.Random;
 
+import baladeva.entities.BaladevaPlayer;
+import baladeva.entities.BaladevaWall;
+import baladeva.entities.enemies.BaladevaBat;
+import baladeva.entities.enemies.BaladevaWolf;
+import baladeva.utils.BaladevaUniverseViewPortLevel1;
 import gameframework.game.GameData;
 import gameframework.game.GameLevelDefaultImpl;
 
@@ -10,6 +15,8 @@ public class BaladevaLevel1 extends GameLevelDefaultImpl {
 	protected int rows;
 	protected int columns;
 	protected int spriteSize;
+	
+	protected BaladevaPlayer player;
 	
 	public BaladevaLevel1(GameData data) {
 		super(data, 30);
@@ -20,17 +27,20 @@ public class BaladevaLevel1 extends GameLevelDefaultImpl {
 
 	@Override
 	protected void init() {
-		this.gameBoard = new BaladevaUniverseViewPortLevel1(this.data);		
-		this.universe.addGameEntity(new BaladevaPlayer(data, normalizeCell(1), normalizeCell(1)));
-		this.spwanEnnemies();
+		this.player = new BaladevaPlayer(data, normalizeCell(1), normalizeCell(1));
+		this.gameBoard = new BaladevaUniverseViewPortLevel1(this.data);
+		this.universe.addGameEntity(this.player);
+		this.spawnEnnemies();
+		//test
+		this.universe.addGameEntity(new BaladevaWolf(data, normalizeCell(6), normalizeCell(18), player));
 		this.createLevelWalls();
 	}
 
-	private void spwanEnnemies() {
+	private void spawnEnnemies() {
 		Random dice = new Random();
 		for(int i = 0 ; i < 10 ; i++) {
 			if(dice.nextInt(2) == 1)
-				this.universe.addGameEntity(new BaladevaEnemy(data, normalizeCell(dice.nextInt(columns - 5)), normalizeCell(dice.nextInt(rows - 5))));
+				this.universe.addGameEntity(new BaladevaBat(data, normalizeCell(dice.nextInt(columns - 5)), normalizeCell(dice.nextInt(rows - 5))));
 		}		
 	}
 

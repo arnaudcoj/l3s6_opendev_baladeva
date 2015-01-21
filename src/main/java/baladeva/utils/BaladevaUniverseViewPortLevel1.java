@@ -1,4 +1,4 @@
-package baladeva;
+package baladeva.utils;
 
 import gameframework.drawing.GameUniverseViewPortDefaultImpl;
 import gameframework.game.GameData;
