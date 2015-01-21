@@ -1,11 +1,9 @@
 package baladeva.entities.enemies;
 
-import gameframework.drawing.Drawable;
 import gameframework.drawing.DrawableImage;
 import gameframework.drawing.GameCanvas;
 import gameframework.drawing.SpriteManager;
 import gameframework.game.GameData;
-import gameframework.game.GameEntity;
 import gameframework.motion.MoveStrategy;
 import gameframework.motion.MoveStrategyStraightLine;
 import gameframework.motion.SpeedVector;
