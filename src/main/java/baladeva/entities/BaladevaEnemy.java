@@ -7,6 +7,7 @@ import gameframework.drawing.SpriteManager;
 import gameframework.drawing.SpriteManagerDefaultImpl;
 import gameframework.game.GameData;
 import gameframework.game.GameEntity;
+import gameframework.game.GameUniverse;
 import gameframework.motion.GameMovable;
 import gameframework.motion.GameMovableDriverDefaultImpl;
 import gameframework.motion.MoveStrategy;
@@ -24,6 +25,8 @@ public abstract class BaladevaEnemy extends GameMovable implements Overlappable,
 	protected SpriteManager spriteManager;
 	protected SpeedVector speed = SpeedVector.createNullVector();
 	protected int spriteSize;
+	protected GameData data;
+	protected int hitPoints;
 
 	public BaladevaEnemy(GameData data, Point pos, Point goal) {
 		super();
@@ -38,6 +41,8 @@ public abstract class BaladevaEnemy extends GameMovable implements Overlappable,
 		this.setPosition(pos);
 		
 		this.initMotion(data, goal);
+		
+		this.data = data;
 	}
 
 	//protected abstract void initMotion(GameData data, Point goal);
@@ -92,4 +97,9 @@ public abstract class BaladevaEnemy extends GameMovable implements Overlappable,
 	protected abstract MoveStrategy getMoveStrategy(Point pos, Point goal);
 
 	protected abstract String imageStr();
+	
+	public void getHit() {
+		if (hitPoints > 0) hitPoints--;
+		if (hitPoints == 0)	{this.data.getUniverse().removeGameEntity(this);}
+	}
 }

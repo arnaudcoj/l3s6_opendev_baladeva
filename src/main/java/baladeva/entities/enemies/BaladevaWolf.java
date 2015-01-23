@@ -27,10 +27,12 @@ public class BaladevaWolf extends BaladevaEnemy {
 	@Deprecated
 	public BaladevaWolf(GameData data, int x, int y, BaladevaPlayer player) {
 		this(data, new Point(x, y), player.getPosition());
+		this.hitPoints = 9;
 	}
 
 	public BaladevaWolf(GameData data, Point pos, Point goal) {
 		super(data, pos, goal);
+		this.hitPoints = 9;
 	}	
 
 	@Override

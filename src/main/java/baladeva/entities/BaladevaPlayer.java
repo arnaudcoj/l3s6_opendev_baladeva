@@ -18,10 +18,15 @@ import java.awt.Point;
 import java.awt.Rectangle;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.util.Observable;
+import java.util.Observer;
+
+import javax.swing.event.ChangeEvent;
+import javax.swing.event.ChangeListener;
 
 import baladeva.utils.MoveStrategyKeyboard8Dir;
 
-public class BaladevaPlayer extends GameMovable implements Overlappable, GameEntity,
+public class BaladevaPlayer extends GameMovable implements Observer, Overlappable, GameEntity,
 		Drawable, KeyListener {
 
 	protected SpriteManager spriteManager;
@@ -29,14 +34,14 @@ public class BaladevaPlayer extends GameMovable implements Overlappable, GameEnt
 	protected int spriteSize;
 	protected Point direction;
 
-	protected GameUniverse universe;
+	protected GameData data;
 	protected BaladevaHit remainingHit;
 	protected int frameHit;
 
 	public BaladevaPlayer(GameData data, int x, int y) {
 		super();
 		this.canvas = data.getCanvas();
-		this.universe = data.getUniverse();
+		this.data = data;
 		this.spriteSize = data.getConfiguration().getSpriteSize();
 		this.spriteManager = new SpriteManagerDefaultImpl(new DrawableImage(
 				"/images/level1/baladeva_hero.png", canvas), this.spriteSize, 3);
@@ -55,6 +60,9 @@ public class BaladevaPlayer extends GameMovable implements Overlappable, GameEnt
 		setDriver(moveDriver);
 
 		data.getCanvas().addKeyListener(this);
+		
+		data.getLife().addObserver(this);;
+		
 
 	}
 
@@ -70,7 +78,7 @@ public class BaladevaPlayer extends GameMovable implements Overlappable, GameEnt
 		this.spriteManager.draw(g, position);
 		if (remainingHit != null) {
 			if (this.frameHit <= 0) {
-				this.universe.removeGameEntity(remainingHit);
+				this.data.getUniverse().removeGameEntity(remainingHit);
 				remainingHit = null;
 			} else {
 				this.frameHit--;
@@ -135,7 +143,7 @@ public class BaladevaPlayer extends GameMovable implements Overlappable, GameEnt
 				}
 				this.remainingHit = new BaladevaHit(canvas, spriteSize, hitPos,
 						hitDir);
-				this.universe.addGameEntity(this.remainingHit);
+				this.data.getUniverse().addGameEntity(this.remainingHit);
 				this.frameHit = 3;
 				break;
 			}
@@ -168,5 +176,14 @@ public class BaladevaPlayer extends GameMovable implements Overlappable, GameEnt
 	}
 
 	public void keyTyped(int keyCode) {
+	}
+
+	public void getHit() {
+		update(this.data.getLife(),this);		
+	}
+
+	@Override
+	public void update(Observable arg0, Object arg1) {
+		
 	}
 }
