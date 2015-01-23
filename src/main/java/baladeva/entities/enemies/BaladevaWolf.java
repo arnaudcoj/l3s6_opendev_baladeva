@@ -17,7 +17,8 @@ import baladeva.entities.BaladevaPlayer;
 public class BaladevaWolf extends BaladevaEnemy {
 
 	protected Random rand = new Random();
-	protected int nbStep = 0;
+	protected int nbStep = 3;
+	protected int currentNbStep = 0;
 	protected DrawableImage img;
 	protected GameCanvas canvas;
 	protected SpriteManager spriteManager;
@@ -35,12 +36,13 @@ public class BaladevaWolf extends BaladevaEnemy {
 
 	@Override
 	protected MoveStrategy getMoveStrategy(Point pos, Point goal) {
-		return new MoveStrategyStraightLine(this.position, goal);
+		return new MoveStrategyStraightLine(this.position, goal, 3);
+		
 	}
 
 	@Override
 	protected String imageStr() {
 		return "/images/level1/wolf.png";
 	}
-
+	
 }
