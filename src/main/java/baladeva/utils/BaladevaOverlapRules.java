@@ -14,12 +14,12 @@ public class BaladevaOverlapRules extends OverlapRulesApplierDefaultImpl {
 		//System.out.println("La chauve-souris t'a touché, get rekt");
 	}
 	
-	public void overlapRule(BaladevaHit e1, BaladevaBat e2) {
-		System.out.println("Paan chauve-souris");
+	public void overlapRule(BaladevaWolf e1, BaladevaHit e2) {
+		System.out.println("Le loup prend cher");
 	}
 	
-	public void overlapRule(BaladevaHit e1, BaladevaWolf e2) {
-		System.out.println("Paan paan Loup");
+	public void overlapRule(BaladevaBat e1, BaladevaHit e2) {
+		System.out.println("Paan paan Bat");
 	}
 	
 }
