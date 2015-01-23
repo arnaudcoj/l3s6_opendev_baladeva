@@ -11,12 +11,13 @@ import gameframework.motion.GameMovable;
 import gameframework.motion.GameMovableDriverDefaultImpl;
 import gameframework.motion.MoveStrategy;
 import gameframework.motion.SpeedVector;
+import gameframework.motion.overlapping.Overlappable;
 
 import java.awt.Graphics;
 import java.awt.Point;
 import java.awt.Rectangle;
 
-public abstract class BaladevaEnemy extends GameMovable implements GameEntity,
+public abstract class BaladevaEnemy extends GameMovable implements Overlappable, GameEntity,
 		Drawable {
 
 	protected GameCanvas canvas;

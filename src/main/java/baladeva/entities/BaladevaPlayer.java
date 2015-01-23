@@ -11,6 +11,7 @@ import gameframework.game.GameUniverse;
 import gameframework.motion.GameMovable;
 import gameframework.motion.GameMovableDriverDefaultImpl;
 import gameframework.motion.MoveStrategyKeyboard;
+import gameframework.motion.overlapping.Overlappable;
 
 import java.awt.Graphics;
 import java.awt.Point;
@@ -20,7 +21,7 @@ import java.awt.event.KeyListener;
 
 import baladeva.utils.MoveStrategyKeyboard8Dir;
 
-public class BaladevaPlayer extends GameMovable implements GameEntity,
+public class BaladevaPlayer extends GameMovable implements Overlappable, GameEntity,
 		Drawable, KeyListener {
 
 	protected SpriteManager spriteManager;
