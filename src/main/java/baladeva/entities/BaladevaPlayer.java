@@ -7,35 +7,37 @@ import gameframework.drawing.SpriteManager;
 import gameframework.drawing.SpriteManagerDefaultImpl;
 import gameframework.game.GameData;
 import gameframework.game.GameEntity;
-import gameframework.game.GameUniverse;
 import gameframework.motion.GameMovable;
 import gameframework.motion.GameMovableDriverDefaultImpl;
 import gameframework.motion.MoveStrategyKeyboard;
+import gameframework.motion.overlapping.Overlappable;
 
 import java.awt.Graphics;
 import java.awt.Point;
 import java.awt.Rectangle;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.util.Observable;
+import java.util.Observer;
 
 import baladeva.utils.MoveStrategyKeyboard8Dir;
 
-public class BaladevaPlayer extends GameMovable implements GameEntity,
-		Drawable, KeyListener {
+public class BaladevaPlayer extends GameMovable implements Observer,
+		Overlappable, GameEntity, Drawable, KeyListener {
 
 	protected SpriteManager spriteManager;
 	protected GameCanvas canvas;
 	protected int spriteSize;
 	protected Point direction;
 
-	protected GameUniverse universe;
+	protected GameData data;
 	protected BaladevaHit remainingHit;
 	protected int frameHit;
 
 	public BaladevaPlayer(GameData data, int x, int y) {
 		super();
 		this.canvas = data.getCanvas();
-		this.universe = data.getUniverse();
+		this.data = data;
 		this.spriteSize = data.getConfiguration().getSpriteSize();
 		this.spriteManager = new SpriteManagerDefaultImpl(new DrawableImage(
 				"/images/level1/baladeva_hero.png", canvas), this.spriteSize, 3);
@@ -54,6 +56,9 @@ public class BaladevaPlayer extends GameMovable implements GameEntity,
 		setDriver(moveDriver);
 
 		data.getCanvas().addKeyListener(this);
+
+		data.getLife().addObserver(this);
+		;
 
 	}
 
@@ -86,7 +91,7 @@ public class BaladevaPlayer extends GameMovable implements GameEntity,
 	protected void updateHit() {
 		if (this.isHitting()) {
 			if (this.frameHit <= 0) {
-				this.universe.removeGameEntity(remainingHit);
+				this.data.getUniverse().removeGameEntity(remainingHit);
 				this.remainingHit = null;
 				this.spriteManager.reset();
 				this.changeSpriteDirection();
@@ -140,7 +145,6 @@ public class BaladevaPlayer extends GameMovable implements GameEntity,
 
 	@Override
 	public void keyPressed(KeyEvent arg0) {
-		System.out.println("Pressed");
 		keyPressed(arg0.getKeyCode());
 	}
 
@@ -167,7 +171,7 @@ public class BaladevaPlayer extends GameMovable implements GameEntity,
 				}
 				this.remainingHit = new BaladevaHit(canvas, spriteSize, hitPos,
 						hitDir);
-				this.universe.addGameEntity(this.remainingHit);
+				this.data.getUniverse().addGameEntity(this.remainingHit);
 				this.frameHit = 3;
 				break;
 			}
@@ -179,7 +183,6 @@ public class BaladevaPlayer extends GameMovable implements GameEntity,
 
 	@Override
 	public void keyReleased(KeyEvent event) {
-		System.out.println("Released");
 		keyReleased(event.getKeyCode());
 	}
 
@@ -192,5 +195,14 @@ public class BaladevaPlayer extends GameMovable implements GameEntity,
 	}
 
 	public void keyTyped(int keyCode) {
+	}
+
+	public void getHit() {
+		update(this.data.getLife(), this);
+	}
+
+	@Override
+	public void update(Observable arg0, Object arg1) {
+
 	}
 }

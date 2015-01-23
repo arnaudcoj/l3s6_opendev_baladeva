@@ -28,10 +28,12 @@ public class BaladevaBat extends BaladevaEnemy {
 	@Deprecated
 	public BaladevaBat(GameData data, int x, int y) {
 		this(data, new Point(x, y), null);
+		this.hitPoints = 1;
 	}
 	
 	public BaladevaBat(GameData data, Point pos, Point goal) {
 		super(data, pos, goal);
+		this.hitPoints = 1;
 	}
 	
 	@Override
