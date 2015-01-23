@@ -103,14 +103,12 @@ public class BaladevaPlayer extends GameMovable implements Overlappable, GameEnt
 			direction = d;
 		} else if (!(d.equals(new Point(0, 0)))) {
 			this.spriteManager.increment();
-			System.out.println("incr");
 		}
 
 	}
 
 	@Override
 	public void keyPressed(KeyEvent arg0) {
-		System.out.println("Pressed");
 		keyPressed(arg0.getKeyCode());
 	}
 
@@ -149,7 +147,6 @@ public class BaladevaPlayer extends GameMovable implements Overlappable, GameEnt
 
 	@Override
 	public void keyReleased(KeyEvent event) {
-		System.out.println("Released");
 		keyReleased(event.getKeyCode());
 	}
 
