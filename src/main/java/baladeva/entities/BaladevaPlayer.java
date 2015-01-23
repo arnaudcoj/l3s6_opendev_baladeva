@@ -39,7 +39,7 @@ public class BaladevaPlayer extends GameMovable implements GameEntity,
 		this.spriteSize = data.getConfiguration().getSpriteSize();
 		this.spriteManager = new SpriteManagerDefaultImpl(new DrawableImage(
 				"/images/level1/baladeva_hero.png", canvas), this.spriteSize, 3);
-		this.direction = new Point(0, 0);
+		this.direction = new Point(0, 1);
 		this.initSpriteManager();
 
 		this.setPosition(new Point(x, y));
@@ -67,12 +67,65 @@ public class BaladevaPlayer extends GameMovable implements GameEntity,
 	@Override
 	public void draw(Graphics g) {
 		this.spriteManager.draw(g, position);
-		if (remainingHit != null) {
+		this.updateHit();
+	}
+
+	protected void changeSpriteDirection() {
+		Point d = this.moveDriver.getSpeedVector(this).getDirection();
+		if (direction.equals(new Point(1, 0))) {
+			this.spriteManager.setType("right");
+		} else if (direction.equals(new Point(-1, 0))) {
+			this.spriteManager.setType("left");
+		} else if (direction.equals(new Point(0, -1))) {
+			this.spriteManager.setType("up");
+		} else if (direction.equals(new Point(0, 1))) {
+			this.spriteManager.setType("down");
+		}
+	}
+
+	protected void updateHit() {
+		if (this.isHitting()) {
 			if (this.frameHit <= 0) {
 				this.universe.removeGameEntity(remainingHit);
-				remainingHit = null;
+				this.remainingHit = null;
+				this.spriteManager.reset();
+				this.changeSpriteDirection();
 			} else {
 				this.frameHit--;
+				this.spriteManager.increment();
+			}
+		}
+	}
+
+	public boolean isHitting() {
+		return this.remainingHit != null;
+	}
+
+	@Override
+	public void oneStepMove() {
+		if (!this.isHitting())
+			super.oneStepMove();
+	}
+
+	@Override
+	public void oneStepMoveAddedBehavior() {
+		Point d = this.moveDriver.getSpeedVector(this).getDirection();
+		if (!direction.equals(d)) {
+			if (d.equals(new Point(1, 0))) {
+				this.spriteManager.setType("right");
+				direction = d;
+			} else if (d.equals(new Point(-1, 0))) {
+				this.spriteManager.setType("left");
+				direction = d;
+			} else if (d.equals(new Point(0, -1))) {
+				this.spriteManager.setType("up");
+				direction = d;
+			} else if (d.equals(new Point(0, 1))) {
+				this.spriteManager.setType("down");
+				direction = d;
+			} else if (!(d.equals(new Point(0, 0)))) {
+				this.spriteManager.increment();
+				System.out.println(d);
 			}
 		}
 	}
@@ -83,28 +136,6 @@ public class BaladevaPlayer extends GameMovable implements GameEntity,
 		rectangle.setLocation(position.x * this.spriteSize, position.y
 				* this.spriteSize);
 		return rectangle;
-	}
-
-	@Override
-	public void oneStepMoveAddedBehavior() {
-		Point d = this.moveDriver.getSpeedVector(this).getDirection();
-		if ((!direction.equals(d)) && d.equals(new Point(1, 0))) {
-			this.spriteManager.setType("right");
-			direction = d;
-		} else if ((!direction.equals(d)) && d.equals(new Point(-1, 0))) {
-			this.spriteManager.setType("left");
-			direction = d;
-		} else if ((!direction.equals(d)) && d.equals(new Point(0, -1))) {
-			this.spriteManager.setType("up");
-			direction = d;
-		} else if ((!direction.equals(d)) && d.equals(new Point(0, 1))) {
-			this.spriteManager.setType("down");
-			direction = d;
-		} else if (!(d.equals(new Point(0, 0)))) {
-			this.spriteManager.increment();
-			System.out.println("incr");
-		}
-
 	}
 
 	@Override
@@ -153,15 +184,6 @@ public class BaladevaPlayer extends GameMovable implements GameEntity,
 	}
 
 	public void keyReleased(int keyCode) {
-		/*
-		 * switch (keyCode) { case KeyEvent.VK_SPACE: { if
-		 * ((direction.equals(new Point(1, 0)))) {
-		 * this.spriteManager.setType("right"); } else if ((direction.equals(new
-		 * Point(-1, 0)))) { this.spriteManager.setType("left"); } else if
-		 * ((direction.equals(new Point(0, -1)))) {
-		 * this.spriteManager.setType("up"); } else {
-		 * this.spriteManager.setType("down"); } break; } default: ; }
-		 */
 	}
 
 	@Override
