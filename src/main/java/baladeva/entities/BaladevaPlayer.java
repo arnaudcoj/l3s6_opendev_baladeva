@@ -20,7 +20,7 @@ import java.awt.event.KeyListener;
 import java.util.Observable;
 import java.util.Observer;
 
-import baladeva.utils.MoveStrategyKeyboard8Dir;
+import gameframework.motion.MoveStrategyKeyboard8Dir;
 
 public class BaladevaPlayer extends GameMovable implements Observer,
 		Overlappable, GameEntity, Drawable, KeyListener {
@@ -33,9 +33,12 @@ public class BaladevaPlayer extends GameMovable implements Observer,
 	protected GameData data;
 	protected BaladevaHit remainingHit;
 	protected int frameHit;
+	protected int frameInvulnerability;
 
 	public BaladevaPlayer(GameData data, int x, int y) {
 		super();
+		this.frameInvulnerability = 0;
+		this.frameHit = 0;
 		this.canvas = data.getCanvas();
 		this.data = data;
 		this.spriteSize = data.getConfiguration().getSpriteSize();
@@ -58,7 +61,6 @@ public class BaladevaPlayer extends GameMovable implements Observer,
 		data.getCanvas().addKeyListener(this);
 
 		data.getLife().addObserver(this);
-		;
 
 	}
 
@@ -71,12 +73,18 @@ public class BaladevaPlayer extends GameMovable implements Observer,
 
 	@Override
 	public void draw(Graphics g) {
-		this.spriteManager.draw(g, position);
+		if(this.frameInvulnerability % 4 == 0)
+			this.spriteManager.draw(g, position);
+		this.decrementFrameInvulnerability();
 		this.updateHit();
 	}
 
+	private void decrementFrameInvulnerability() {
+		if(this.frameInvulnerability > 0)
+			this.frameInvulnerability--;
+	}
+
 	protected void changeSpriteDirection() {
-		Point d = this.moveDriver.getSpeedVector(this).getDirection();
 		if (direction.equals(new Point(1, 0))) {
 			this.spriteManager.setType("right");
 		} else if (direction.equals(new Point(-1, 0))) {
@@ -130,7 +138,6 @@ public class BaladevaPlayer extends GameMovable implements Observer,
 				direction = d;
 			} else if (!(d.equals(new Point(0, 0)))) {
 				this.spriteManager.increment();
-				System.out.println(d);
 			}
 		}
 	}
@@ -198,11 +205,15 @@ public class BaladevaPlayer extends GameMovable implements Observer,
 	}
 
 	public void getHit() {
-		update(this.data.getLife(), this);
+		if(frameInvulnerability <= 0) {
+			System.out.println("touchay");
+			update(this.data.getLife(), this);
+			this.frameInvulnerability = 20;
+		}
 	}
 
 	@Override
 	public void update(Observable arg0, Object arg1) {
-
+		int v = this.data.getLife().getValue();
 	}
 }

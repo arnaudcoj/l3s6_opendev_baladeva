@@ -32,7 +32,7 @@ public class BaladevaLevel1 extends GameLevelDefaultImpl {
 		this.universe.addGameEntity(this.player);
 		this.spawnEnnemies();
 		//test
-		this.universe.addGameEntity(new BaladevaWolf(data, normalizeCell(6), normalizeCell(18), player));
+		//this.universe.addGameEntity(new BaladevaWolf(data, normalizeCell(6), normalizeCell(18), player));
 		this.createLevelWalls();
 	}
 

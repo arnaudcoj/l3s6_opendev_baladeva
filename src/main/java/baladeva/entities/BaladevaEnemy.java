@@ -7,7 +7,6 @@ import gameframework.drawing.SpriteManager;
 import gameframework.drawing.SpriteManagerDefaultImpl;
 import gameframework.game.GameData;
 import gameframework.game.GameEntity;
-import gameframework.game.GameUniverse;
 import gameframework.motion.GameMovable;
 import gameframework.motion.GameMovableDriverDefaultImpl;
 import gameframework.motion.MoveStrategy;
@@ -18,8 +17,8 @@ import java.awt.Graphics;
 import java.awt.Point;
 import java.awt.Rectangle;
 
-public abstract class BaladevaEnemy extends GameMovable implements Overlappable, GameEntity,
-		Drawable {
+public abstract class BaladevaEnemy extends GameMovable implements
+		Overlappable, GameEntity, Drawable {
 
 	protected GameCanvas canvas;
 	protected SpriteManager spriteManager;
@@ -28,31 +27,36 @@ public abstract class BaladevaEnemy extends GameMovable implements Overlappable,
 	protected GameData data;
 	protected int hitPoints;
 
-	public BaladevaEnemy(GameData data, Point pos, Point goal) {
-		super();
-		
-		this.canvas = data.getCanvas();
-		this.spriteSize = data.getConfiguration().getSpriteSize();
-		
-		DrawableImage img = new DrawableImage(this.imageStr(), canvas);
-		this.spriteManager = new SpriteManagerDefaultImpl(img, this.spriteSize, 3);
-		this.initSpriteManager();
-		
-		this.setPosition(pos);
-		
-		this.initMotion(data, goal);
-		
-		this.data = data;
-	}
+	protected abstract MoveStrategy getMoveStrategy(Point pos, Point goal);
 
-	//protected abstract void initMotion(GameData data, Point goal);
+	protected abstract String imageStr();
+
+	// protected abstract void initMotion(GameData data, Point goal);
 	protected void initMotion(GameData data, Point goal) {
 		GameMovableDriverDefaultImpl moveDriver = new GameMovableDriverDefaultImpl();
 		moveDriver.setStrategy(this.getMoveStrategy(this.position, goal));
 		moveDriver.setmoveBlockerChecker(data.getMoveBlockerChecker());
 		setDriver(moveDriver);
 	}
+
+	public BaladevaEnemy(GameData data, Point pos, Point goal) {
+		super();
 	
+		this.canvas = data.getCanvas();
+		this.spriteSize = data.getConfiguration().getSpriteSize();
+	
+		DrawableImage img = new DrawableImage(this.imageStr(), canvas);
+		this.spriteManager = new SpriteManagerDefaultImpl(img, this.spriteSize,
+				3);
+		this.initSpriteManager();
+	
+		this.setPosition(pos);
+	
+		this.initMotion(data, goal);
+	
+		this.data = data;
+	}
+
 	/*
 	 * Maybe to change according to the attacks
 	 */
@@ -60,6 +64,11 @@ public abstract class BaladevaEnemy extends GameMovable implements Overlappable,
 		this.spriteManager.setTypes("down", "left", "right", "up");
 		this.spriteManager.setType("down");
 		this.spriteManager.reset();
+	}
+
+	@Override
+	public void oneStepMoveAddedBehavior() {
+		this.changeDirection(this.getSpeedVector());
 	}
 
 	@Override
@@ -89,17 +98,10 @@ public abstract class BaladevaEnemy extends GameMovable implements Overlappable,
 			this.spriteManager.setType("up");
 	}
 
-	@Override
-	public void oneStepMoveAddedBehavior() {
-		this.changeDirection(this.getSpeedVector());
-	}
-
-	protected abstract MoveStrategy getMoveStrategy(Point pos, Point goal);
-
-	protected abstract String imageStr();
-	
 	public void getHit() {
-		if (hitPoints > 0) hitPoints--;
-		if (hitPoints == 0)	{this.data.getUniverse().removeGameEntity(this);}
+		if (hitPoints > 0)
+			hitPoints--;
+		if (hitPoints == 0)
+			this.data.getUniverse().removeGameEntity(this);
 	}
 }
