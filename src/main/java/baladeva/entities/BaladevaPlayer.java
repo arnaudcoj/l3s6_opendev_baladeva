@@ -33,9 +33,11 @@ public class BaladevaPlayer extends GameMovable implements Observer,
 	protected GameData data;
 	protected BaladevaHit remainingHit;
 	protected int frameHit;
+	protected int life;
 
 	public BaladevaPlayer(GameData data, int x, int y) {
 		super();
+		this.life = data.getCanvas().getLife();
 		this.canvas = data.getCanvas();
 		this.data = data;
 		this.spriteSize = data.getConfiguration().getSpriteSize();
@@ -198,11 +200,15 @@ public class BaladevaPlayer extends GameMovable implements Observer,
 	}
 
 	public void getHit() {
+		this.life--;
 		update(this.data.getLife(), this);
 	}
 
 	@Override
 	public void update(Observable arg0, Object arg1) {
-
+		this.data.getUniverse().removeGameEntity(this);
+		this.data.getUniverse().addGameEntity(this);
+		if (this.life >= 0) this.data.getLife().setValue(this.life);
+		this.setPosition(new Point(this.position.x+50,this.position.y+50));
 	}
 }
