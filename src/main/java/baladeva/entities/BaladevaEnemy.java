@@ -87,7 +87,6 @@ public abstract class BaladevaEnemy extends GameMovable implements
 
 	public void changeDirection(SpeedVector m) {
 		Point direction = m.getDirection();
-		this.spriteManager.reset();
 		if (direction.getX() == 1)
 			this.spriteManager.setType("right");
 		else if (direction.getX() == -1)
