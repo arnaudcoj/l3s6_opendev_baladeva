@@ -36,7 +36,7 @@ public class Baladeva extends GameDefaultImpl {
 		BaladevaConfiguration configuration = new BaladevaConfiguration(20, 40, 32, 5);
 		GameData data = new GameData(configuration);
 		Game baladeva = new Baladeva(data);
-		GameWindow w = new GameWindow(data.getCanvas(), configuration, data.getScore(), data.getLife());
+		GameWindow w = new GameWindow("Baladeva", data.getCanvas(), configuration);
 		w.createGUI();
 		baladeva.start();
 	}

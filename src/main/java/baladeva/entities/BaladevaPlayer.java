@@ -33,12 +33,17 @@ public class BaladevaPlayer extends GameMovable implements Observer,
 	protected GameData data;
 	protected BaladevaHit remainingHit;
 	protected int frameHit;
+
 	protected int frameInvulnerability;
+
+	protected int life;
 
 	public BaladevaPlayer(GameData data, int x, int y) {
 		super();
 		this.frameInvulnerability = 0;
 		this.frameHit = 0;
+		// pas sûr
+		this.life = data.getLife().getValue();
 		this.canvas = data.getCanvas();
 		this.data = data;
 		this.spriteSize = data.getConfiguration().getSpriteSize();
@@ -73,14 +78,14 @@ public class BaladevaPlayer extends GameMovable implements Observer,
 
 	@Override
 	public void draw(Graphics g) {
-		if(this.frameInvulnerability % 4 == 0)
+		if (this.frameInvulnerability % 4 == 0)
 			this.spriteManager.draw(g, position);
 		this.decrementFrameInvulnerability();
 		this.updateHit();
 	}
 
 	private void decrementFrameInvulnerability() {
-		if(this.frameInvulnerability > 0)
+		if (this.frameInvulnerability > 0)
 			this.frameInvulnerability--;
 	}
 
@@ -206,14 +211,26 @@ public class BaladevaPlayer extends GameMovable implements Observer,
 
 	public void getHit() {
 		if(frameInvulnerability <= 0) {
-			System.out.println("touchay");
 			update(this.data.getLife(), this);
 			this.frameInvulnerability = 20;
+			this.life--;
+			update(this.data.getLife(), this);
 		}
+
 	}
 
 	@Override
 	public void update(Observable arg0, Object arg1) {
-		int v = this.data.getLife().getValue();
+		if (this.life >= 0) {
+			this.data.getUniverse().removeGameEntity(this);
+			this.data.getUniverse().addGameEntity(this);
+			this.data.getLife().setValue(this.life);
+			
+//			Pas une bonne idée AMHA, trop de pb de collisions à gérer
+//			this.setPosition(new Point(this.position.x + 50;
+//					this.position.y + 50));
+		} else {
+			this.data.getEndOfGame().setValue(true);
+		}
 	}
 }
