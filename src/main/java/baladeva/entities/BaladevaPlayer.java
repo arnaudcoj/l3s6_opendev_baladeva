@@ -211,6 +211,13 @@ public class BaladevaPlayer extends GameMovable implements Observer,
 			this.data.getUniverse().addGameEntity(this);
 			this.data.getLife().setValue(this.life);
 			this.setPosition(new Point(this.data.getConfiguration().getNbColumns()*this.spriteSize/2,this.data.getConfiguration().getNbRows()*this.spriteSize/2));
+			Iterator<GameEntity> it = this.data.getUniverse().getGameEntitiesIterator();
+			while(it.hasNext()) {
+				GameEntity ge = it.next();
+				if (ge instanceof BaladevaWolf) {
+					((BaladevaWolf) ge).initMotion(data, this.getPosition());
+				}
+			}
 		} else {
 			this.data.getEndOfGame().setValue(true);
 		}
