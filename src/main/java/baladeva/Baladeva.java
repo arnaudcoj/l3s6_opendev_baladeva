@@ -11,6 +11,7 @@ import gameframework.game.Game;
 import gameframework.game.GameConfiguration;
 import gameframework.game.GameData;
 import gameframework.game.GameDefaultImpl;
+import gameframework.gui.GameStatusBarElement;
 import gameframework.gui.GameWindow;
 
 /**
@@ -36,7 +37,10 @@ public class Baladeva extends GameDefaultImpl {
 		BaladevaConfiguration configuration = new BaladevaConfiguration(20, 40, 32, 5);
 		GameData data = new GameData(configuration);
 		Game baladeva = new Baladeva(data);
-		GameWindow w = new GameWindow("Baladeva", data.getCanvas(), configuration);
+		GameStatusBarElement<Integer> score = new GameStatusBarElement<Integer>("Score : ", data.getScore());
+		GameStatusBarElement<Integer> life = new GameStatusBarElement<Integer>("Life : ", data.getLife());
+
+		GameWindow w = new GameWindow("Baladeva", data.getCanvas(), configuration, life, score);
 		w.createGUI();
 		baladeva.start();
 	}

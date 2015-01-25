@@ -26,6 +26,7 @@ public abstract class BaladevaEnemy extends GameMovable implements
 	protected int spriteSize;
 	protected GameData data;
 	protected int hitPoints;
+	protected int scorePoints;
 
 	protected abstract MoveStrategy getMoveStrategy(Point pos, Point goal);
 
@@ -101,7 +102,9 @@ public abstract class BaladevaEnemy extends GameMovable implements
 	public void getHit() {
 		if (hitPoints > 0)
 			hitPoints--;
-		if (hitPoints == 0)
-			this.data.getUniverse().removeGameEntity(this);
+		if (hitPoints == 0)	{
+			this.data.getUniverse().removeGameEntity(this); 
+			this.data.getScore().setValue(this.data.getScore().getValue() + this.scorePoints);
+		}
 	}
 }
