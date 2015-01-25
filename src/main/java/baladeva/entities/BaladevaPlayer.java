@@ -7,6 +7,7 @@ import gameframework.drawing.SpriteManager;
 import gameframework.drawing.SpriteManagerDefaultImpl;
 import gameframework.game.GameData;
 import gameframework.game.GameEntity;
+import gameframework.game.GameLevel;
 import gameframework.motion.GameMovable;
 import gameframework.motion.GameMovableDriverDefaultImpl;
 import gameframework.motion.MoveStrategyKeyboard;
@@ -209,7 +210,7 @@ public class BaladevaPlayer extends GameMovable implements Observer,
 
 	public void getHit() {
 		if(frameInvulnerability <= 0) {
-			hitImpact();
+			maj();
 			this.frameInvulnerability = 20;
 		}
 	}
@@ -217,21 +218,25 @@ public class BaladevaPlayer extends GameMovable implements Observer,
 	@Override
 	public void update(Observable arg0, Object arg1) {}
 	
-	public void hitImpact() {
+// Nom à changer, c'est quoi les histoires là
+	public void maj() {
+		this.data.getLife().setValue(this.data.getLife().getValue() - 1);
 		if (this.data.getLife().getValue() > 0) {
 			this.data.getUniverse().removeGameEntity(this);
 			this.data.getUniverse().addGameEntity(this);
-			this.data.getLife().setValue(this.data.getLife().getValue() - 1);
-
-			Iterator<GameEntity> it = this.data.getUniverse()
-					.getGameEntitiesIterator();
-			while (it.hasNext()) {
+			Iterator<GameEntity> it = this.data.getUniverse().getGameEntitiesIterator();
+			while(it.hasNext()) {
 				GameEntity ge = it.next();
 				if (ge instanceof BaladevaWolf) {
 					((BaladevaWolf) ge).initMotion(data, this.getPosition());
 				}
 			}
 		} else {
+			Iterator<GameLevel> it = this.data.getLevels().iterator();
+			while(it.hasNext()) {
+				GameLevel tmp = it.next();
+				this.data.getLevels().remove(tmp);
+			}
 			this.data.getEndOfGame().setValue(true);
 		}
 	}

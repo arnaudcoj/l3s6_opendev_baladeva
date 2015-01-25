@@ -112,26 +112,26 @@ public abstract class BaladevaEnemy extends GameMovable implements
 			hitPoints--;
 			this.frameInvulnerability = 20;
 		}
-		if (hitPoints == 0) {
-			this.data.getUniverse().removeGameEntity(this);
-			this.data.getScore().setValue(
-					this.data.getScore().getValue() + this.scorePoints);
-			// trying to end the level. Not sure it's the way to do
-			 int i = 0;
-			 Iterator<GameEntity> it =
-			 this.data.getUniverse().getGameEntitiesIterator();
-			 BaladevaPlayer player = null;
-			
-			 while(it.hasNext()) {
-			 GameEntity tmp = it.next();
-			 if (tmp instanceof BaladevaEnemy) i++;
-			 if (tmp instanceof BaladevaPlayer) player = (BaladevaPlayer) tmp;
-			 }
-			 if (i == 0) {
-			 this.data.getUniverse().removeGameEntity(player);
-			 this.data.getEndOfGame().setValue(true);
-			 }
-		}
+		if (hitPoints == 0)	{
+			this.data.getUniverse().removeGameEntity(this); 
+			this.data.getScore().setValue(this.data.getScore().getValue() + this.scorePoints);
+			int i = 0;
+			Iterator<GameEntity> it = this.data.getUniverse().getGameEntitiesIterator();
+			BaladevaPlayer player = null;
+			BaladevaHit hit = null;
+			while(it.hasNext()) {
+				GameEntity tmp = it.next();
+				if (tmp instanceof BaladevaEnemy) i++;
+			}
+			if (i == 0) { 
+				it = this.data.getUniverse().getGameEntitiesIterator();
+				while(it.hasNext()) {
+					GameEntity tmp = it.next();
+					this.data.getUniverse().removeGameEntity(tmp);
+				}
+				this.data.getEndOfGame().setValue(true);
+			}
+		}		
 	}
 
 	public boolean invincible() {

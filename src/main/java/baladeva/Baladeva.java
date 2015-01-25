@@ -12,6 +12,7 @@ import gameframework.gui.GameWindow;
 import java.net.MalformedURLException;
 
 import baladeva.levels.BaladevaLevel1;
+import baladeva.levels.BaladevaLevelBoss;
 import baladeva.utils.BaladevaConfiguration;
 
 /**
@@ -27,6 +28,7 @@ public class Baladeva extends GameDefaultImpl {
 
 	public void initLevels() {
 		this.data.addLevel(new BaladevaLevel1(data));
+		this.data.addLevel(new BaladevaLevelBoss(data));
 	}
 	
 	/**
@@ -34,7 +36,7 @@ public class Baladeva extends GameDefaultImpl {
 	 * @throws MalformedURLException 
 	 */
 	public static void main(String[] args) throws MalformedURLException {
-		BaladevaConfiguration configuration = new BaladevaConfiguration(20, 40, 32, 1);
+		BaladevaConfiguration configuration = new BaladevaConfiguration(20, 40, 32, 5);
 		GameData data = new GameData(configuration);
 		Game baladeva = new Baladeva(data);
 		GameStatusBarElement<Integer> score = new GameStatusBarElement<Integer>("Score : ", data.getScore());
