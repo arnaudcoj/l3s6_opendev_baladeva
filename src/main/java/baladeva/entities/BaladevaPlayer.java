@@ -141,10 +141,10 @@ public class BaladevaPlayer extends GameMovable implements Observer,
 			} else if (d.equals(new Point(0, 1))) {
 				this.spriteManager.setType("down");
 				direction = d;
-			} else if (!(d.equals(new Point(0, 0)))) {
+			}
+		} else if (!(d.equals(new Point(0, 0)))) {
 				this.spriteManager.increment();
 			}
-		}
 	}
 
 	@Override
