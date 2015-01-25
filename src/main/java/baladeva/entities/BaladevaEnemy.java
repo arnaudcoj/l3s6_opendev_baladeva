@@ -16,6 +16,7 @@ import gameframework.motion.overlapping.Overlappable;
 import java.awt.Graphics;
 import java.awt.Point;
 import java.awt.Rectangle;
+import java.util.Iterator;
 
 public abstract class BaladevaEnemy extends GameMovable implements
 		Overlappable, GameEntity, Drawable {

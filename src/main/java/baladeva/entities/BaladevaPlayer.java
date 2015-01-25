@@ -218,7 +218,6 @@ public class BaladevaPlayer extends GameMovable implements Observer,
 	@Override
 	public void update(Observable arg0, Object arg1) {}
 	
-	@Override
 	public void hitImpact() {
 		if (this.data.getLife().getValue() > 0) {
 			this.data.getUniverse().removeGameEntity(this);
