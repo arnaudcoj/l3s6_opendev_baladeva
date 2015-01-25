@@ -130,9 +130,15 @@ public abstract class BaladevaEnemy extends GameMovable implements
 	protected synchronized void handleEndofLevel() {
 		int i = 0;
 		Iterator<GameEntity> it = this.data.getUniverse().getGameEntitiesIterator();
-		while(it.hasNext()) {
-			GameEntity tmp = it.next();
-			if (tmp instanceof BaladevaEnemy) i++;
+		Lock lock = new ReentrantLock();
+		lock.lock();
+		try {
+			while(it.hasNext()) {
+				GameEntity tmp = it.next();
+				if (tmp instanceof BaladevaEnemy) i++;
+			}
+		} finally {
+		    lock.unlock();
 		}
 		if (i == 0) { 
 			it = this.data.getUniverse().getGameEntitiesIterator();
