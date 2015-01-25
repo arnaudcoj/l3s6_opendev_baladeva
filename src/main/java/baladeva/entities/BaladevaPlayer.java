@@ -210,7 +210,7 @@ public class BaladevaPlayer extends GameMovable implements Observer,
 			this.data.getUniverse().removeGameEntity(this);
 			this.data.getUniverse().addGameEntity(this);
 			this.data.getLife().setValue(this.life);
-			this.setPosition(new Point(this.position.x+50,this.position.y+50));
+			this.setPosition(new Point(this.data.getConfiguration().getNbColumns()*this.spriteSize/2,this.data.getConfiguration().getNbRows()*this.spriteSize/2));
 		} else {
 			this.data.getEndOfGame().setValue(true);
 		}
