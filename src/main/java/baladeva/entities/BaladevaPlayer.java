@@ -210,6 +210,7 @@ public class BaladevaPlayer extends GameMovable implements Observer,
 
 	public void getHit() {
 		if(frameInvulnerability <= 0) {
+
 			maj();
 			this.frameInvulnerability = 20;
 		}
