@@ -211,7 +211,6 @@ public class BaladevaPlayer extends GameMovable implements Observer,
 		if(frameInvulnerability <= 0) {
 			hitImpact();
 			this.frameInvulnerability = 20;
-			this.life--;
 			hitImpact();
 		}
 
@@ -222,10 +221,10 @@ public class BaladevaPlayer extends GameMovable implements Observer,
 	
 	@Override
 	public void hitImpact() {
-		if (this.life >= 0) {
+		if (this.data.getLife().getValue() > 0) {
 			this.data.getUniverse().removeGameEntity(this);
 			this.data.getUniverse().addGameEntity(this);
-			this.data.getLife().setValue(this.life);
+			this.data.getLife().setValue(this.data.getLife().getValue() - 1);
 
 			this.setPosition(new Point(this.data.getConfiguration().getNbColumns()*this.spriteSize/2,this.data.getConfiguration().getNbRows()*this.spriteSize/2));
 			Iterator<GameEntity> it = this.data.getUniverse().getGameEntitiesIterator();
