@@ -27,6 +27,7 @@ public abstract class BaladevaEnemy extends GameMovable implements Overlappable,
 	protected int spriteSize;
 	protected GameData data;
 	protected int hitPoints;
+	protected int scorePoints;
 
 	public BaladevaEnemy(GameData data, Point pos, Point goal) {
 		super();
@@ -100,6 +101,9 @@ public abstract class BaladevaEnemy extends GameMovable implements Overlappable,
 	
 	public void getHit() {
 		if (hitPoints > 0) hitPoints--;
-		if (hitPoints == 0)	{this.data.getUniverse().removeGameEntity(this);}
+		if (hitPoints == 0)	{
+			this.data.getUniverse().removeGameEntity(this); 
+			this.data.getScore().setValue(this.data.getScore().getValue() + this.scorePoints);
+		}
 	}
 }
