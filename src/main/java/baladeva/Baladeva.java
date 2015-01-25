@@ -9,7 +9,6 @@ import gameframework.game.GameDefaultImpl;
 import gameframework.gui.GameStatusBarElement;
 import gameframework.gui.GameWindow;
 
-import java.io.IOException;
 import java.net.MalformedURLException;
 
 import baladeva.levels.BaladevaLevel1;

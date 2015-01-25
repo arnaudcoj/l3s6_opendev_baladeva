@@ -24,6 +24,9 @@ public class BaladevaWolf extends BaladevaEnemy {
 	protected SpriteManager spriteManager;
 	protected SpeedVector speed = SpeedVector.createNullVector();
 	protected int spriteSize;
+	
+	//Waiting for an update
+	protected MoveStrategyStraightLine moveStrat;
 
 	@Deprecated
 	public BaladevaWolf(GameData data, int x, int y, BaladevaPlayer player) {
@@ -40,7 +43,8 @@ public class BaladevaWolf extends BaladevaEnemy {
 
 	@Override
 	protected MoveStrategy getMoveStrategy(Point pos, Point goal) {
-		return new MoveStrategyStraightLine(this.position, goal, 3);
+		this.moveStrat = new MoveStrategyStraightLine(this.position, goal, 3);
+		return moveStrat;
 		
 	}
 

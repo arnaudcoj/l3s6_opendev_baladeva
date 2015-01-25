@@ -21,6 +21,7 @@ public class BaladevaHit extends KeyAdapter implements Movable, Drawable, GameEn
 	protected GameCanvas canvas;
 	protected int spriteSize;
 	protected Point position;
+	protected String hitDir;
 	
 	public BaladevaHit(GameCanvas canvas, int spriteSize, Point pos, String hitDir) {
 		super();
@@ -29,7 +30,8 @@ public class BaladevaHit extends KeyAdapter implements Movable, Drawable, GameEn
 		this.spriteManager = new SpriteManagerDefaultImpl(new DrawableImage(
 				"/images/level1/hit.png", canvas), this.spriteSize, 1);
 		this.position = new Point(32, 32);
-		this.initSpriteManager(hitDir);
+		this.hitDir = hitDir;
+		this.initSpriteManager(this.hitDir);
 
 		this.position = pos;
 
@@ -53,6 +55,10 @@ public class BaladevaHit extends KeyAdapter implements Movable, Drawable, GameEn
 	@Override
 	public Point getPosition() {
 		return this.position;
+	}
+	
+	public String getHitDir() {
+		return this.hitDir;
 	}
 
 	@Override

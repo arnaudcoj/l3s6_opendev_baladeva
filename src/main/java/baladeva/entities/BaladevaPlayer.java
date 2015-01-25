@@ -83,7 +83,7 @@ public class BaladevaPlayer extends GameMovable implements Observer,
 	}
 
 	private void decrementFrameInvulnerability() {
-		if (this.frameInvulnerability > 0)
+		if (this.invincible())
 			this.frameInvulnerability--;
 	}
 
@@ -212,7 +212,6 @@ public class BaladevaPlayer extends GameMovable implements Observer,
 			hitImpact();
 			this.frameInvulnerability = 20;
 		}
-
 	}
 
 	@Override
@@ -224,9 +223,9 @@ public class BaladevaPlayer extends GameMovable implements Observer,
 			this.data.getUniverse().addGameEntity(this);
 			this.data.getLife().setValue(this.data.getLife().getValue() - 1);
 
-			this.setPosition(new Point(this.data.getConfiguration().getNbColumns()*this.spriteSize/2,this.data.getConfiguration().getNbRows()*this.spriteSize/2));
-			Iterator<GameEntity> it = this.data.getUniverse().getGameEntitiesIterator();
-			while(it.hasNext()) {
+			Iterator<GameEntity> it = this.data.getUniverse()
+					.getGameEntitiesIterator();
+			while (it.hasNext()) {
 				GameEntity ge = it.next();
 				if (ge instanceof BaladevaWolf) {
 					((BaladevaWolf) ge).initMotion(data, this.getPosition());
@@ -235,5 +234,9 @@ public class BaladevaPlayer extends GameMovable implements Observer,
 		} else {
 			this.data.getEndOfGame().setValue(true);
 		}
+	}
+
+	public boolean invincible() {
+		return this.frameInvulnerability > 0;
 	}
 }
