@@ -213,21 +213,20 @@ public class BaladevaPlayer extends GameMovable implements Observer,
 
 	public void getHit() {
 		if(frameInvulnerability <= 0) {
-			update(this.data.getLife(), this);
+			maj(this.data.getLife(), this);
 			this.frameInvulnerability = 20;
-			this.life--;
-			update(this.data.getLife(), this);
 		}
 
 	}
 
 	@Override
-	public void update(Observable arg0, Object arg1) {
-		if (this.life >= 0) {
+	public void update(Observable arg0, Object arg1) {}
+	
+	public void maj() {
+		this.data.getLife().setValue(this.data.getLife().getValue() - 1);
+		if (this.data.getLife().getValue() > 0) {
 			this.data.getUniverse().removeGameEntity(this);
 			this.data.getUniverse().addGameEntity(this);
-			this.data.getLife().setValue(this.life);
-
 			this.setPosition(new Point(this.data.getConfiguration().getNbColumns()*this.spriteSize/2,this.data.getConfiguration().getNbRows()*this.spriteSize/2));
 			Iterator<GameEntity> it = this.data.getUniverse().getGameEntitiesIterator();
 			while(it.hasNext()) {
@@ -237,7 +236,13 @@ public class BaladevaPlayer extends GameMovable implements Observer,
 				}
 			}
 		} else {
+			Iterator<GameLevel> it = this.data.getLevels().iterator();
+			while(it.hasNext()) {
+				GameLevel tmp = it.next();
+				this.data.getLevels().remove(tmp);
+			}
 			this.data.getEndOfGame().setValue(true);
 		}
+	}
 	}
 }
