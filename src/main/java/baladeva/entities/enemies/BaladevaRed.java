@@ -9,13 +9,13 @@ public class BaladevaRed extends BaladevaWolf {
 	public BaladevaRed(GameData data, int x, int y, BaladevaPlayer player) {
 		super(data, x, y, player);
 		this.hitPoints = 12;
-		this.scorePoints = 2000;
+		this.scorePoints = 1500;
 	}
 	
 	public BaladevaRed(GameData data, Point pos, Point goal) {
 		super(data, pos, goal);
 		this.hitPoints = 12;
-		this.scorePoints = 2000;
+		this.scorePoints = 1500;
 	}	
 
 	@Override
