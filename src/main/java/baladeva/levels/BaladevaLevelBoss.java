@@ -3,7 +3,7 @@ package baladeva.levels;
 import baladeva.entities.BaladevaPlayer;
 import baladeva.entities.BaladevaWall;
 import baladeva.entities.enemies.*;
-import baladeva.utils.BaladevaUniverseViewPortLevel1;
+import baladeva.utils.BaladevaUniverseViewPortLevelBoss;
 import gameframework.game.GameData;
 import gameframework.game.GameLevelDefaultImpl;
 
@@ -24,7 +24,7 @@ public class BaladevaLevelBoss extends GameLevelDefaultImpl {
 	
 	protected void init() {
 		this.player = new BaladevaPlayer(data, normalizeCell(1), normalizeCell(1));
-		this.gameBoard = new BaladevaUniverseViewPortLevel1(this.data);
+		this.gameBoard = new BaladevaUniverseViewPortLevelBoss(this.data);
 		this.universe.addGameEntity(this.player);
 		this.universe.addGameEntity(new BaladevaKnight(data, normalizeCell(6), normalizeCell(18), player));
 		this.createLevelWalls();
