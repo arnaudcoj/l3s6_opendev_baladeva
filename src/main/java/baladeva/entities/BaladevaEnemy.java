@@ -110,35 +110,26 @@ public abstract class BaladevaEnemy extends GameMovable implements
 	}
 
 	public synchronized void getHit() {
-		if (hitPoints > 0) {
-			hitPoints--;
-			this.frameInvulnerability = 20;
-		}
+		if (hitPoints > 0) hitPoints--;
 		if (hitPoints == 0)	{
 			Lock lock = new ReentrantLock();
 			lock.lock();
 			try {
-				this.data.getUniverse().removeGameEntity(this); 
+			this.data.getUniverse().removeGameEntity(this); 
 			} finally {
-				lock.unlock();
+			    lock.unlock();
 			}
 			this.data.getScore().setValue(this.data.getScore().getValue() + this.scorePoints);
-			this.handleEndofLevel();
+			this.handleDeath();
 		}		
 	}
 	
-	protected synchronized void handleEndofLevel() {
+	protected synchronized void handleDeath() {
 		int i = 0;
 		Iterator<GameEntity> it = this.data.getUniverse().getGameEntitiesIterator();
-		Lock lock = new ReentrantLock();
-		lock.lock();
-		try {
-			while(it.hasNext()) {
-				GameEntity tmp = it.next();
-				if (tmp instanceof BaladevaEnemy) i++;
-			}
-		} finally {
-		    lock.unlock();
+		while(it.hasNext()) {
+			GameEntity tmp = it.next();
+			if (tmp instanceof BaladevaEnemy) i++;
 		}
 		if (i == 0) { 
 			it = this.data.getUniverse().getGameEntitiesIterator();
