@@ -3,7 +3,6 @@
  */
 package baladeva;
 
-
 import gameframework.game.Game;
 import gameframework.game.GameData;
 import gameframework.game.GameDefaultImpl;
@@ -11,6 +10,7 @@ import gameframework.gui.GameStatusBarElement;
 import gameframework.gui.GameWindow;
 
 import java.net.MalformedURLException;
+import java.util.Observable;
 
 import baladeva.levels.BaladevaLevel1;
 import baladeva.levels.BaladevaLevelBoss;
@@ -31,20 +31,25 @@ public class Baladeva extends GameDefaultImpl {
 		this.data.addLevel(new BaladevaLevel1(data));
 		this.data.addLevel(new BaladevaLevelBoss(data));
 	}
-	
+
 	/**
 	 * @param args
-	 * @throws MalformedURLException 
+	 * @throws MalformedURLException
 	 */
 	public static void main(String[] args) throws MalformedURLException {
-		BaladevaConfiguration configuration = new BaladevaConfiguration(20, 40, 32, 5);
+		BaladevaConfiguration configuration = new BaladevaConfiguration(20, 40,
+				32, 12);
 		GameData data = new GameData(configuration);
 		Game baladeva = new Baladeva(data);
-		GameStatusBarElement<Integer> score = new GameStatusBarElement<Integer>("Score : ", data.getScore());
-		GameStatusBarElement<Integer> life = new GameStatusBarElement<Integer>("Life : ", data.getLife());
+		GameStatusBarElement<Integer> score = new GameStatusBarElement<Integer>(
+				"Score : ", data.getScore());
+		GameStatusBarElement<Integer> life = new GameStatusBarElement<Integer>(
+				"Life : ", data.getLife());
 
-		GameWindow w = new GameWindow("Baladeva", data.getCanvas(), configuration, life, score);
+		GameWindow w = new GameWindow("Baladeva", data.getCanvas(),
+				configuration, life, score);
 		w.createGUI();
 		baladeva.start();
 	}
+
 }

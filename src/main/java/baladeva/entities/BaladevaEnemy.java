@@ -82,6 +82,7 @@ public abstract class BaladevaEnemy extends GameMovable implements
 		this.decrementFrameInvulnerability();
 
 		this.spriteManager.increment();
+
 	}
 
 	private void decrementFrameInvulnerability() {
@@ -110,21 +111,27 @@ public abstract class BaladevaEnemy extends GameMovable implements
 	}
 
 	public void getHit() {
-		if (hitPoints > 0) { hitPoints--; frameInvulnerability = 20;}
-		if (hitPoints == 0)	{
-			this.data.getUniverse().removeGameEntity(this); 
-			this.data.getScore().setValue(this.data.getScore().getValue() + this.scorePoints);
-			int i = 0;
-			Iterator<GameEntity> it = this.data.getUniverse().getGameEntitiesIterator();
-			while(it.hasNext()) {if (it.next() instanceof BaladevaEnemy) i++;}
-			if(i == 0) {
-				it = this.data.getUniverse().getGameEntitiesIterator();
-				while(it.hasNext()) {GameEntity lol = it.next();
-				if (lol instanceof BaladevaPlayer) this.data.getUniverse().removeGameEntity(lol); }					
+		if (hitPoints > 0) {
+			hitPoints--;
+			frameInvulnerability = 20;
+		}
+		if (hitPoints == 0) {
+			this.data.getUniverse().removeGameEntity(this);
+			this.data.getScore().setValue(
+					this.data.getScore().getValue() + this.scorePoints);
+			if (noMoreEnemy()) {
 				this.data.getEndOfGame().setValue(true);
-				
+				System.out.println("bonjour");
 			}
 		}
+	}
+
+	private boolean noMoreEnemy() {
+		Iterator<GameEntity> it = this.data.getUniverse().getGameEntitiesIterator();
+		while(it.hasNext())
+			if(it.next() instanceof BaladevaEnemy)
+				return false;
+		return true;
 	}
 
 	public boolean invincible() {
