@@ -38,7 +38,7 @@ public class Baladeva extends GameDefaultImpl {
 	 */
 	public static void main(String[] args) throws MalformedURLException {
 		BaladevaConfiguration configuration = new BaladevaConfiguration(20, 40,
-				32, 12);
+				32, 2);
 		GameData data = new GameData(configuration);
 		Game baladeva = new Baladeva(data);
 		GameStatusBarElement<Integer> score = new GameStatusBarElement<Integer>(

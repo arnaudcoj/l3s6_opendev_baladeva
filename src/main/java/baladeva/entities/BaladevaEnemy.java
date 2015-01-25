@@ -121,7 +121,6 @@ public abstract class BaladevaEnemy extends GameMovable implements
 					this.data.getScore().getValue() + this.scorePoints);
 			if (noMoreEnemy()) {
 				this.data.getEndOfGame().setValue(true);
-				System.out.println("bonjour");
 			}
 		}
 	}

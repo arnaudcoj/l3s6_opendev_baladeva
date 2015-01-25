@@ -1,11 +1,16 @@
 package baladeva.levels;
 
+import gameframework.game.GameData;
+import gameframework.game.GameEntity;
+import gameframework.game.GameLevelDefaultImpl;
+
+import java.awt.Point;
+import java.util.Iterator;
+
 import baladeva.entities.BaladevaPlayer;
 import baladeva.entities.BaladevaWall;
-import baladeva.entities.enemies.*;
+import baladeva.entities.enemies.BaladevaKnight;
 import baladeva.utils.BaladevaUniverseViewPortLevelBoss;
-import gameframework.game.GameData;
-import gameframework.game.GameLevelDefaultImpl;
 
 public class BaladevaLevelBoss extends GameLevelDefaultImpl {
 
@@ -23,11 +28,13 @@ public class BaladevaLevelBoss extends GameLevelDefaultImpl {
 	}
 	
 	protected void init() {
-		this.player = new BaladevaPlayer(data, normalizeCell(1), normalizeCell(1));
+		Iterator<GameEntity> it = this.data.getUniverse().getGameEntitiesIterator();
+		GameEntity tmp;
+		while(it.hasNext())
+			if((tmp = it.next()) instanceof BaladevaPlayer)
+				player = (BaladevaPlayer) tmp;
 		this.gameBoard = new BaladevaUniverseViewPortLevelBoss(this.data);
-		this.universe.addGameEntity(this.player);
-		this.universe.addGameEntity(new BaladevaKnight(data, normalizeCell(6), normalizeCell(18), player));
-		this.createLevelWalls();
+		this.universe.addGameEntity(new BaladevaKnight(data, new Point (normalizeCell(6), normalizeCell(6)), player.getPosition()));	
 	}
 	
 	@Override

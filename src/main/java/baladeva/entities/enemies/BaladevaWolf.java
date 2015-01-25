@@ -24,8 +24,8 @@ public class BaladevaWolf extends BaladevaEnemy {
 	protected SpriteManager spriteManager;
 	protected SpeedVector speed = SpeedVector.createNullVector();
 	protected int spriteSize;
-	
-	//Waiting for an update
+
+	// Waiting for an update
 	protected MoveStrategyStraightLine moveStrat;
 
 	@Deprecated
@@ -39,18 +39,17 @@ public class BaladevaWolf extends BaladevaEnemy {
 		super(data, pos, goal);
 		this.hitPoints = 9;
 		this.scorePoints = 1000;
-	}	
+	}
 
 	@Override
 	protected MoveStrategy getMoveStrategy(Point pos, Point goal) {
-		this.moveStrat = new MoveStrategyStraightLine(this.position, goal, 3);
-		return moveStrat;
-		
+		return new MoveStrategyStraightLine(this.position, goal, 3);
+
 	}
 
 	@Override
 	protected String imageStr() {
 		return "/images/level1/wolf.png";
 	}
-	
+
 }
