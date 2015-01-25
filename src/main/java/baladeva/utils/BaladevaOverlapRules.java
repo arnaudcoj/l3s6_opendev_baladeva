@@ -11,6 +11,16 @@ public class BaladevaOverlapRules extends OverlapRulesApplierDefaultImpl {
 			e1.getHit();
 	}
 
+	public void overlapRule(BaladevaPlayer e1, BaladevaKnight e) {
+		if (!e1.invincible() && !e.invincible())
+			e1.getHit();
+	}
+	
+	public void overlapRule(BaladevaPlayer e1, BaladevaRed e) {
+		if (!e1.invincible() && !e.invincible())
+			e1.getHit();
+	}
+
 	public void overlapRule(BaladevaPlayer e1, BaladevaBat e2) {
 		e1.getHit();
 	}
@@ -21,6 +31,16 @@ public class BaladevaOverlapRules extends OverlapRulesApplierDefaultImpl {
 	}
 
 	public void overlapRule(BaladevaBat e1, BaladevaHit e2) {
+		if (!e1.invincible())
+			e1.getHit();
+	}
+	
+	public void overlapRule(BaladevaKnight e1, BaladevaHit e2) {
+		if (!e1.invincible())
+			e1.getHit();
+	}
+	
+	public void overlapRule(BaladevaRed e1, BaladevaHit e2) {
 		if (!e1.invincible())
 			e1.getHit();
 	}
