@@ -109,35 +109,21 @@ public abstract class BaladevaEnemy extends GameMovable implements
 			this.spriteManager.setType("up");
 	}
 
-	public synchronized void getHit() {
-		if (hitPoints > 0) hitPoints--;
+	public void getHit() {
+		if (hitPoints > 0) { hitPoints--; frameInvulnerability = 20;}
 		if (hitPoints == 0)	{
-			Lock lock = new ReentrantLock();
-			lock.lock();
-			try {
 			this.data.getUniverse().removeGameEntity(this); 
-			} finally {
-			    lock.unlock();
-			}
 			this.data.getScore().setValue(this.data.getScore().getValue() + this.scorePoints);
-			this.handleDeath();
-		}		
-	}
-	
-	protected synchronized void handleDeath() {
-		int i = 0;
-		Iterator<GameEntity> it = this.data.getUniverse().getGameEntitiesIterator();
-		while(it.hasNext()) {
-			GameEntity tmp = it.next();
-			if (tmp instanceof BaladevaEnemy) i++;
-		}
-		if (i == 0) { 
-			it = this.data.getUniverse().getGameEntitiesIterator();
-			while(it.hasNext()) {
-				GameEntity tmp = it.next();
-				this.data.getUniverse().removeGameEntity(tmp);
+			int i = 0;
+			Iterator<GameEntity> it = this.data.getUniverse().getGameEntitiesIterator();
+			while(it.hasNext()) {if (it.next() instanceof BaladevaEnemy) i++;}
+			if(i == 0) {
+				it = this.data.getUniverse().getGameEntitiesIterator();
+				while(it.hasNext()) {GameEntity lol = it.next();
+				if (lol instanceof BaladevaPlayer) this.data.getUniverse().removeGameEntity(lol); }					
+				this.data.getEndOfGame().setValue(true);
+				
 			}
-			this.data.getEndOfGame().setValue(true);
 		}
 	}
 
