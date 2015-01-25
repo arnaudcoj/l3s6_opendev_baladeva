@@ -80,4 +80,8 @@ public class BaladevaLevel1 extends GameLevelDefaultImpl {
 			universe.addGameEntity(new BaladevaWall(data, normalizeCell(i), 0));
 	}
 
+	public void end() {
+		stopGameLoop = false;
+	}
+	
 }
