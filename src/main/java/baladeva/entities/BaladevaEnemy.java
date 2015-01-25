@@ -17,6 +17,8 @@ import java.awt.Graphics;
 import java.awt.Point;
 import java.awt.Rectangle;
 import java.util.Iterator;
+import java.util.concurrent.locks.Lock;
+import java.util.concurrent.locks.ReentrantLock;
 
 public abstract class BaladevaEnemy extends GameMovable implements
 		Overlappable, GameEntity, Drawable {
@@ -113,7 +115,13 @@ public abstract class BaladevaEnemy extends GameMovable implements
 			this.frameInvulnerability = 20;
 		}
 		if (hitPoints == 0)	{
-			this.data.getUniverse().removeGameEntity(this); 
+			Lock lock = new ReentrantLock();
+			lock.lock();
+			try {
+				this.data.getUniverse().removeGameEntity(this); 
+			} finally {
+				lock.unlock();
+			}
 			this.data.getScore().setValue(this.data.getScore().getValue() + this.scorePoints);
 			this.handleEndofLevel();
 		}		
