@@ -3,16 +3,16 @@
  */
 package baladeva;
 
-import java.net.MalformedURLException;
-
-import baladeva.levels.BaladevaLevel1;
-import baladeva.utils.BaladevaConfiguration;
 import gameframework.game.Game;
-import gameframework.game.GameConfiguration;
 import gameframework.game.GameData;
 import gameframework.game.GameDefaultImpl;
 import gameframework.gui.GameStatusBarElement;
 import gameframework.gui.GameWindow;
+
+import java.net.MalformedURLException;
+
+import baladeva.levels.BaladevaLevel1;
+import baladeva.utils.BaladevaConfiguration;
 
 /**
  * @author non0w

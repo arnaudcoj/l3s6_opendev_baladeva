@@ -84,10 +84,12 @@ public class BaladevaPlayer extends GameMovable implements Observer,
 			this.spriteManager.draw(g, position);
 		this.decrementFrameInvulnerability();
 		this.updateHit();
+		this.spriteManager.increment();
+
 	}
 
 	private void decrementFrameInvulnerability() {
-		if (this.frameInvulnerability > 0)
+		if (this.invincible())
 			this.frameInvulnerability--;
 	}
 
@@ -145,8 +147,8 @@ public class BaladevaPlayer extends GameMovable implements Observer,
 				direction = d;
 			}
 		} else if (!(d.equals(new Point(0, 0)))) {
-				this.spriteManager.increment();
-			}
+			this.spriteManager.increment();
+		}
 	}
 
 	@Override
@@ -212,13 +214,10 @@ public class BaladevaPlayer extends GameMovable implements Observer,
 	}
 
 	public void getHit() {
-		if(frameInvulnerability <= 0) {
-			update(this.data.getLife(), this);
-			this.frameInvulnerability = 20;
-			this.life--;
-			update(this.data.getLife(), this);
-		}
-
+		update(this.data.getLife(), this);
+		this.frameInvulnerability = 20;
+		this.life--;
+		update(this.data.getLife(), this);
 	}
 
 	@Override
@@ -228,9 +227,9 @@ public class BaladevaPlayer extends GameMovable implements Observer,
 			this.data.getUniverse().addGameEntity(this);
 			this.data.getLife().setValue(this.life);
 
-			this.setPosition(new Point(this.data.getConfiguration().getNbColumns()*this.spriteSize/2,this.data.getConfiguration().getNbRows()*this.spriteSize/2));
-			Iterator<GameEntity> it = this.data.getUniverse().getGameEntitiesIterator();
-			while(it.hasNext()) {
+			Iterator<GameEntity> it = this.data.getUniverse()
+					.getGameEntitiesIterator();
+			while (it.hasNext()) {
 				GameEntity ge = it.next();
 				if (ge instanceof BaladevaWolf) {
 					((BaladevaWolf) ge).initMotion(data, this.getPosition());
@@ -239,5 +238,9 @@ public class BaladevaPlayer extends GameMovable implements Observer,
 		} else {
 			this.data.getEndOfGame().setValue(true);
 		}
+	}
+
+	public boolean invincible() {
+		return this.frameInvulnerability > 0;
 	}
 }
