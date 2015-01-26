@@ -7,7 +7,6 @@ import gameframework.drawing.SpriteManager;
 import gameframework.drawing.SpriteManagerDefaultImpl;
 import gameframework.game.GameData;
 import gameframework.game.GameEntity;
-import gameframework.game.GameLevel;
 import gameframework.motion.GameMovable;
 import gameframework.motion.GameMovableDriverDefaultImpl;
 import gameframework.motion.MoveStrategyKeyboard;
@@ -19,13 +18,8 @@ import java.awt.Point;
 import java.awt.Rectangle;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
 import java.util.Observable;
 import java.util.Observer;
-
-import baladeva.entities.enemies.BaladevaWolf;
 
 public class BaladevaPlayer extends GameMovable implements Observer,
 		Overlappable, GameEntity, Drawable, KeyListener {
@@ -212,38 +206,13 @@ public class BaladevaPlayer extends GameMovable implements Observer,
 
 	public void getHit() {
 		if(frameInvulnerability <= 0) {
-
-			maj();
+			this.data.getLife().setValue(this.data.getLife().getValue()-1);
 			this.frameInvulnerability = 20;
 		}
 	}
 
 	@Override
-	public void update(Observable arg0, Object arg1) {}
-	
-// Nom à changer, c'est quoi les histoires là
-	public void maj() {
-		this.data.getLife().setValue(this.data.getLife().getValue() - 1);
-		if (this.data.getLife().getValue() > 0) {
-			this.data.getUniverse().removeGameEntity(this);
-			this.data.getUniverse().addGameEntity(this);
-			Iterator<GameEntity> it = this.data.getUniverse().getGameEntitiesIterator();
-			while(it.hasNext()) {
-				GameEntity ge = it.next();
-				if (ge instanceof BaladevaWolf) {
-					((BaladevaWolf) ge).initMotion(data, this.getPosition());
-				}
-			}
-		} else {
-			List<GameLevel> copy = new ArrayList<GameLevel>(this.data.getLevels());
-			Iterator<GameLevel> it = copy.iterator();
-			while(it.hasNext()) {
-				// Fait planter GameDefaultImpl.start() ! Une idée qui ne modifie pas le framework ?
-				GameLevel tmp = it.next();
-				this.data.getLevels().remove(tmp);
-			}
-			this.data.getEndOfGame().setValue(true);
-		}
+	public void update(Observable arg0, Object arg1) {
 	}
 
 	public boolean invincible() {
