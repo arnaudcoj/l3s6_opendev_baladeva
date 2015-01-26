@@ -10,7 +10,6 @@ import gameframework.gui.GameStatusBarElement;
 import gameframework.gui.GameWindow;
 
 import java.net.MalformedURLException;
-import java.util.Observable;
 
 import baladeva.levels.BaladevaCongratulations;
 import baladeva.levels.BaladevaLevel1;
@@ -53,5 +52,4 @@ public class Baladeva extends GameDefaultImpl {
 		w.createGUI();
 		baladeva.start();
 	}
-
 }

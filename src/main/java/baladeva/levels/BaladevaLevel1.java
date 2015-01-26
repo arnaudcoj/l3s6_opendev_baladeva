@@ -47,11 +47,6 @@ public class BaladevaLevel1 extends GameLevelDefaultImpl {
 		}
 	}
 
-	@Override
-	public void run() {
-		super.run();
-	}
-
 	private void createLevelWalls() {
 		createLeftSideWall();
 		createBottomSideWall();
