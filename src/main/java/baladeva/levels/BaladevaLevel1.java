@@ -1,14 +1,15 @@
 package baladeva.levels;
 
+import gameframework.game.GameData;
+import gameframework.game.GameLevelDefaultImpl;
+
+import java.awt.Point;
 import java.util.Random;
 
 import baladeva.entities.BaladevaPlayer;
 import baladeva.entities.BaladevaWall;
 import baladeva.entities.enemies.BaladevaBat;
-import baladeva.entities.enemies.BaladevaWolf;
 import baladeva.utils.BaladevaUniverseViewPortLevel1;
-import gameframework.game.GameData;
-import gameframework.game.GameLevelDefaultImpl;
 
 public class BaladevaLevel1 extends GameLevelDefaultImpl {
 
@@ -40,10 +41,11 @@ public class BaladevaLevel1 extends GameLevelDefaultImpl {
 
 	private void spawnEnnemies() {
 		Random dice = new Random();
-		for (int i = 0; i < /*dice.nextInt(5) + 5*/2; i++) {
-			this.universe.addGameEntity(new BaladevaBat(data,
+		for (int i = 0; i < /* dice.nextInt(5) + 5 */2; i++) {
+			this.universe.addGameEntity(new BaladevaBat(data, new Point(
 					normalizeCell(dice.nextInt(columns - 10) + 5),
-					normalizeCell(dice.nextInt(rows - 10) + 5)));
+					normalizeCell(dice.nextInt(rows - 10) + 5)), this.player
+					.getPosition()));
 		}
 	}
 

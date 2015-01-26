@@ -12,7 +12,7 @@ public class BaladevaKnight extends BaladevaEnemy {
 	
 	public BaladevaKnight(GameData data, Point pos, Point goal) {
 		super(data, pos, goal);
-		this.hitPoints = 1;
+		this.hitPoints = 18;
 		this.scorePoints = 2000;
 	}	
 
@@ -23,7 +23,7 @@ public class BaladevaKnight extends BaladevaEnemy {
 
 	@Override
 	protected MoveStrategy getMoveStrategy(Point pos, Point goal) {
-		return new MoveStrategyStraightLine(this.position, goal, 3);
+		return new MoveStrategyStraightLine(this.position, goal, 5);
 	}
 
 }

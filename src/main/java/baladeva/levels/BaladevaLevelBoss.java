@@ -8,7 +8,6 @@ import java.awt.Point;
 import java.util.Iterator;
 
 import baladeva.entities.BaladevaPlayer;
-import baladeva.entities.BaladevaWall;
 import baladeva.entities.enemies.BaladevaKnight;
 import baladeva.utils.BaladevaUniverseViewPortLevelBoss;
 
@@ -34,6 +33,7 @@ public class BaladevaLevelBoss extends GameLevelDefaultImpl {
 		while (it.hasNext())
 			if ((tmp = it.next()) instanceof BaladevaPlayer)
 				player = (BaladevaPlayer) tmp;
+		player.setPosition(new Point(normalizeCell(1),normalizeCell(1)));
 		this.gameBoard = new BaladevaUniverseViewPortLevelBoss(this.data);
 		this.universe.addGameEntity(new BaladevaKnight(data, new Point(
 				normalizeCell(6), normalizeCell(6)), player.getPosition()));
