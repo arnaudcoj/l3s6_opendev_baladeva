@@ -19,7 +19,9 @@ import java.awt.Point;
 import java.awt.Rectangle;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.List;
 import java.util.Observable;
 import java.util.Observer;
 
@@ -233,8 +235,10 @@ public class BaladevaPlayer extends GameMovable implements Observer,
 				}
 			}
 		} else {
-			Iterator<GameLevel> it = this.data.getLevels().iterator();
+			List<GameLevel> copy = new ArrayList<GameLevel>(this.data.getLevels());
+			Iterator<GameLevel> it = copy.iterator();
 			while(it.hasNext()) {
+				// Fait planter GameDefaultImpl.start() ! Une idée qui ne modifie pas le framework ?
 				GameLevel tmp = it.next();
 				this.data.getLevels().remove(tmp);
 			}
