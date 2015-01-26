@@ -96,6 +96,7 @@ public class BaladevaPlayer extends GameMovable implements Observer,
 
 	/**
 	 * Draw the entity on the game window.
+	 * @param g the Graphics manager
 	 */
 	@Override
 	public void draw(Graphics g) {
