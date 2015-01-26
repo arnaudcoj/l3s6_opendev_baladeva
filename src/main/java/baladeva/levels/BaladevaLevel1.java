@@ -9,6 +9,7 @@ import java.util.Random;
 import baladeva.entities.BaladevaPlayer;
 import baladeva.entities.BaladevaWall;
 import baladeva.entities.enemies.BaladevaBat;
+import baladeva.entities.enemies.BaladevaWolf;
 import baladeva.utils.BaladevaUniverseViewPortLevel1;
 
 public class BaladevaLevel1 extends GameLevelDefaultImpl {
@@ -33,15 +34,14 @@ public class BaladevaLevel1 extends GameLevelDefaultImpl {
 		this.gameBoard = new BaladevaUniverseViewPortLevel1(this.data);
 		this.universe.addGameEntity(this.player);
 		this.spawnEnnemies();
-		// test
-		// this.universe.addGameEntity(new BaladevaWolf(data, normalizeCell(6),
-		// normalizeCell(18), player));
 		this.createLevelWalls();
 	}
 
 	private void spawnEnnemies() {
 		Random dice = new Random();
-		for (int i = 0; i < /* dice.nextInt(5) + 5 */2; i++) {
+		this.universe.addGameEntity(new BaladevaWolf(data, new Point(normalizeCell(dice.nextInt(columns - 10) + 5),
+				normalizeCell(dice.nextInt(rows - 10) + 5)), player.getPosition()));
+		for (int i = 0; i < dice.nextInt(5) + 5; i++) {
 			this.universe.addGameEntity(new BaladevaBat(data, new Point(
 					normalizeCell(dice.nextInt(columns - 10) + 5),
 					normalizeCell(dice.nextInt(rows - 10) + 5)), this.player
