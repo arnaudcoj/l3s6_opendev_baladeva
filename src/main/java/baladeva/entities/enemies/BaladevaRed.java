@@ -12,7 +12,7 @@ public class BaladevaRed extends BaladevaEnemy {
 	
 	public BaladevaRed(GameData data, Point pos, Point goal) {
 		super(data, pos, goal);
-		this.hitPoints = 7;
+		this.hitPoints = 5;
 		this.scorePoints = 1500;
 	}	
 
