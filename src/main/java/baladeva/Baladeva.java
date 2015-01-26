@@ -18,7 +18,8 @@ import baladeva.levels.BaladevaLevelBoss;
 import baladeva.utils.BaladevaConfiguration;
 
 /**
- * @author non0w
+ * Baladeva main class is a Game. It manage the differents level and their display using the class needed.
+ * @author WISSOCQ Sarah, AGEZ Adrien, COJEZ Arnaud, MOEVI Alexandre, PETIT Antoine  
  *
  */
 public class Baladeva extends GameDefaultImpl {
@@ -28,6 +29,9 @@ public class Baladeva extends GameDefaultImpl {
 		this.initLevels();
 	}
 
+	/**
+	 * Add all the levels on the game list
+	 */
 	public void initLevels() {
 		this.data.addLevel(new BaladevaLevel1(data));
 		this.data.addLevel(new BaladevaLevel2(data));
@@ -36,7 +40,7 @@ public class Baladeva extends GameDefaultImpl {
 	}
 
 	/**
-	 * @param args
+	 * @param args not use here 
 	 * @throws MalformedURLException
 	 */
 	public static void main(String[] args) throws MalformedURLException {

@@ -14,6 +14,12 @@ import java.util.Random;
 import baladeva.entities.BaladevaEnemy;
 import baladeva.entities.BaladevaPlayer;
 
+/**
+ * BaladevaWolf represent the enemy who looks like a werewolf. Its moveStrategy is a StraightLineStragy in order to
+ * follow the player.
+ * @author WISSOCQ Sarah, AGEZ Adrien, COJEZ Arnaud, MOEVI Alexandre, PETIT Antoine
+ *
+ */
 public class BaladevaWolf extends BaladevaEnemy {
 
 	protected Random rand = new Random();
@@ -35,6 +41,12 @@ public class BaladevaWolf extends BaladevaEnemy {
 		this.scorePoints = 1000;
 	}
 
+	/**
+	 * Create an enemy wolf
+	 * @param data the data of the current game
+	 * @param pos the position where the enemy will be at the start of the game 
+	 * @param goal the goal of the enemy
+	 */ 
 	public BaladevaWolf(GameData data, Point pos, Point goal) {
 		super(data, pos, goal);
 		this.hitPoints = 9;

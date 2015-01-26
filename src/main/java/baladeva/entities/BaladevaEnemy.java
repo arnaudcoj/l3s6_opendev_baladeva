@@ -17,9 +17,16 @@ import java.awt.Graphics;
 import java.awt.Point;
 import java.awt.Rectangle;
 import java.util.Iterator;
-import java.util.concurrent.locks.Lock;
-import java.util.concurrent.locks.ReentrantLock;
 
+/**
+ * BaladevaEnemy represent the entities which will be the opponent of the player
+ * they only can hit by touching the player and be hit by the entity BaladevaHit
+ * the MoveStrategy have to be implemented by the class which extends this one
+ * and should have a image to give to the sprite manager
+ * 
+ * @author WISSOCQ Sarah, AGEZ Adrien, COJEZ Arnaud, MOEVI Alexandre, PETIT Antoine
+ *
+ */
 public abstract class BaladevaEnemy extends GameMovable implements
 		Overlappable, GameEntity, Drawable {
 
@@ -32,10 +39,25 @@ public abstract class BaladevaEnemy extends GameMovable implements
 	protected int scorePoints;
 	protected int frameInvulnerability;
 
+	/**
+	 * Will return the MoveStrategy linked to the enemy.
+	 * @param pos the position of the entity
+	 * @param goal the goal of the enemy (most of the case in our game : the goal is the player)
+	 * @return the MoveStrategy choose at the creation with the given param
+	 */
 	protected abstract MoveStrategy getMoveStrategy(Point pos, Point goal);
 
+	/**
+	 * Return the link to the picture choose to represent the entity.
+	 * @return the link to the picture choose to represent the entity in String format
+	 */
 	protected abstract String imageStr();
 
+	/**
+	 * Initialize the different part needed to move the entity
+	 * @param data the data of the current game
+	 * @param goal the goal of the enemy
+	 */
 	protected void initMotion(GameData data, Point goal) {
 		GameMovableDriverDefaultImpl moveDriver = new GameMovableDriverDefaultImpl();
 		moveDriver.setStrategy(this.getMoveStrategy(this.position, goal));
@@ -43,6 +65,12 @@ public abstract class BaladevaEnemy extends GameMovable implements
 		setDriver(moveDriver);
 	}
 
+	/**
+	 * Constructor of the class BaladevaEnemy
+	 * @param data the data of the current game
+	 * @param pos the initial position of the enemy
+	 * @param goal the goal of the enemy
+	 */
 	public BaladevaEnemy(GameData data, Point pos, Point goal) {
 		super();
 
@@ -62,7 +90,8 @@ public abstract class BaladevaEnemy extends GameMovable implements
 	}
 
 	/*
-	 * Maybe to change according to the attacks
+	 * Initialize the SpriteManager with the basic position of the sprite, only work with picture which 
+	 * had 4th position.
 	 */
 	public void initSpriteManager() {
 		this.spriteManager.setTypes("down", "left", "right", "up");
@@ -70,11 +99,17 @@ public abstract class BaladevaEnemy extends GameMovable implements
 		this.spriteManager.reset();
 	}
 
+	/**
+	 * Add the direction change to the behavior of oneStepMove
+	 */
 	@Override
 	public void oneStepMoveAddedBehavior() {
 		this.changeDirection(this.getSpeedVector());
 	}
 
+	/**
+	 * Draw the entity on the game window and increment the spriteManager
+	 */
 	@Override
 	public void draw(Graphics g) {
 		if (this.frameInvulnerability % 4 == 0)
@@ -85,11 +120,18 @@ public abstract class BaladevaEnemy extends GameMovable implements
 
 	}
 
+	/**
+	 * Manage the invulnerability of the enemy when hit
+	 */
 	private void decrementFrameInvulnerability() {
 		if (this.invincible())
 			this.frameInvulnerability--;
 	}
 
+	/**
+	 * Return the Rectangle which represent the entity in order to manage interaction with other entities
+	 * @return the Rectangle which represent the entity
+	 */
 	@Override
 	public Rectangle getBoundingBox() {
 		Rectangle rectangle = new Rectangle(this.spriteSize, this.spriteSize);
@@ -98,6 +140,10 @@ public abstract class BaladevaEnemy extends GameMovable implements
 		return rectangle;
 	}
 
+	/**
+	 * Change the direction of the sprite
+	 * @param m the SpeedVector which will give the new direction
+	 */
 	public void changeDirection(SpeedVector m) {
 		Point direction = m.getDirection();
 		if (direction.getX() == 1)
@@ -110,6 +156,9 @@ public abstract class BaladevaEnemy extends GameMovable implements
 			this.spriteManager.setType("up");
 	}
 
+	/**
+	 * Manage what have to happen when the enemy is hit
+	 */
 	public void getHit() {
 		if (hitPoints > 0) {
 			hitPoints--;
@@ -125,6 +174,10 @@ public abstract class BaladevaEnemy extends GameMovable implements
 		}
 	}
 
+	/**
+	 * Return if there still enemies on the level or not
+	 * @return true if all the enemies are dead or false in the other case
+	 */
 	private boolean noMoreEnemy() {
 		Iterator<GameEntity> it = this.data.getUniverse().getGameEntitiesIterator();
 		while(it.hasNext())
@@ -133,6 +186,10 @@ public abstract class BaladevaEnemy extends GameMovable implements
 		return true;
 	}
 
+	/**
+	 * Return if the enemy is invincible or not
+	 * @return true if the enemy still invincible or false in the other case
+	 */
 	public boolean invincible() {
 		return frameInvulnerability > 0;
 	}
