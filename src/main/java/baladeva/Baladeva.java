@@ -13,6 +13,7 @@ import java.net.MalformedURLException;
 
 import baladeva.levels.BaladevaCongratulations;
 import baladeva.levels.BaladevaLevel1;
+import baladeva.levels.BaladevaLevel2;
 import baladeva.levels.BaladevaLevelBoss;
 import baladeva.utils.BaladevaConfiguration;
 
@@ -29,6 +30,7 @@ public class Baladeva extends GameDefaultImpl {
 
 	public void initLevels() {
 		this.data.addLevel(new BaladevaLevel1(data));
+		this.data.addLevel(new BaladevaLevel2(data));
 		this.data.addLevel(new BaladevaLevelBoss(data));
 		this.data.addLevel(new BaladevaCongratulations(data));
 	}
