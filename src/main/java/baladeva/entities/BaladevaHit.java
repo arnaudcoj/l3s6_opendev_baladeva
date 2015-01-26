@@ -16,7 +16,7 @@ import java.awt.Rectangle;
 import java.awt.event.KeyAdapter;
 
 /**
- * BaladevaHit represent a hiy given by the player, this hit will damage the enemies.
+ * BaladevaHit represent a hit given by the player, this hit will damage the enemies.
  * They will appear in front of the player.
  * @author WISSOCQ Sarah, AGEZ Adrien, COJEZ Arnaud, MOEVI Alexandre, PETIT Antoine
  *
