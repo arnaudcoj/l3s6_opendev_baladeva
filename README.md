@@ -6,10 +6,12 @@ Zelda-like game, using the framework written by David Auber, Philippe Narbel and
 
 _______________________________
 
-##Framework UML
-
-![uml](gameframework.png)
-
 ##Preview
 
 ![preview](preview.gif)
+
+_______________________________
+
+##Framework UML
+
+![uml](gameframework.png)
